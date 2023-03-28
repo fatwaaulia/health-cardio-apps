@@ -51,14 +51,14 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					// == sidebar
 					// SEMUA ROLE
 					[
-						'text'    => 'AKUN SAYA',
+						'text'    => 'My Account',
 						'role'   => ['1','2','3'],
 					],
 					[
-						'text'    => 'Akun',
-						'url'     => 'account',
-						'icon'    => 'fa-regular fa-user',
-						'active'  => 'account',
+						'text'    => 'Settings',
+						'url'     => 'settings',
+						'icon'    => 'fa-solid fa-gear',
+						'active'  => 'settings',
 						'role'    => ['1','2','3'],
 					],
 					[

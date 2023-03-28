@@ -55,12 +55,10 @@ $routes->get('/', 'C_Users::profile');
 $routes->post('update', 'C_Users::updateProfile');
 });
 
-// ACCAOUNT
-$routes->group('account', ['filter' => 'Auth'], static function ($routes) {
-$routes->get('/', 'C_Users::account');
-$routes->post('update', 'C_Users::updateAccount');
+// SETTING
+$routes->group('settings', ['filter' => 'Auth'], static function ($routes) {
+$routes->get('/', 'C_Users::settings');
 $routes->post('update/password', 'C_Users::updatePassword');
-$routes->post('delete/image', 'C_Users::deleteProfileImg');
 });
 
 // SUPERADMIN

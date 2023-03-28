@@ -254,16 +254,16 @@ class C_Users extends BaseController
             </script>");
     }
 
-    // ACCOUNT
-    public function account()
+    // SETTINGS
+    public function settings()
     {
         $id = $this->user_session['id'];
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Account';
+        $data['title'] = 'Settings';
 
-        $data['content']   = view($this->name.'/account',$data);
+        $data['content']   = view($this->name.'/settings',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
         return view('dashboard/header',$data);
     }
