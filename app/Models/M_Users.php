@@ -14,10 +14,10 @@ class M_Users extends Model
         'password',
         'img',
         'jenis_kelamin',
-        'alamat',
-        'telp',
-        'token',
-        'activated_at',
+        'usia',
+        'riwayat_diabetes',
+        'riwayat_alkohol',
+        'riwayat_merokok',
     ];
     protected $useTimestamps = true;
 

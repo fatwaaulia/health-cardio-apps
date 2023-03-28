@@ -23,6 +23,13 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'dashboard',
 						'role'    => ['1','2','3'],
 					],
+					[
+						'text'    => 'Personal Information',
+						'url'     => 'profile',
+						'icon'    => 'fa-regular fa-user',
+						'active'  => 'profile',
+						'role'    => ['1','2','3'],
+					],
 					// SUPERADMIN
 					[
 						'text'    => 'Kelola Pengguna',
@@ -48,10 +55,10 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'role'   => ['1','2','3'],
 					],
 					[
-						'text'    => 'Profil',
-						'url'     => 'profile',
+						'text'    => 'Akun',
+						'url'     => 'account',
 						'icon'    => 'fa-regular fa-user',
-						'active'  => 'profile',
+						'active'  => 'account',
 						'role'    => ['1','2','3'],
 					],
 					[

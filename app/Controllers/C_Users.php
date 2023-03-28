@@ -163,7 +163,7 @@ class C_Users extends BaseController
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Profil - ' . $data['data']['nama'];
+        $data['title'] = 'Personal Information';
 
         $data['content']   = view($this->name.'/profile',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
@@ -182,11 +182,13 @@ class C_Users extends BaseController
             $rule_telp = 'string';
         }
         $rules = [
-            'nama'          => 'required',
-            'jenis_kelamin' => 'required',
-            'img'           => 'max_size[img,1024]|ext_in[img,png,jpg,jpeg]',
-            'alamat'        => 'max_length[255]',
-            'telp'          => $rule_telp,
+            'img'              => 'max_size[img,1024]|ext_in[img,png,jpg,jpeg]',
+            'nama'             => 'required',
+            'jenis_kelamin'    => 'required',
+            'usia'             => 'required',
+            'riwayat_diabetes' => 'required',
+            'riwayat_alkohol'  => 'required',
+            'riwayat_merokok'  => 'required',
         ];
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput();
@@ -203,11 +205,13 @@ class C_Users extends BaseController
             }
 
             $field = [
-                'nama'          => $this->request->getVar('nama', $this->filter),
-                'jenis_kelamin' => $this->request->getVar('jenis_kelamin', $this->filter),
-                'img'           => $img_name,
-                'alamat'        => $this->request->getVar('alamat', $this->filter),
-                'telp'          => $this->request->getVar('telp', $this->filter),
+                'img'               => $img_name,
+                'nama'              => $this->request->getVar('nama', $this->filter),
+                'jenis_kelamin'     => $this->request->getVar('jenis_kelamin', $this->filter),
+                'usia'              => $this->request->getVar('usia', $this->filter),
+                'riwayat_diabetes'  => $this->request->getVar('riwayat_diabetes', $this->filter),
+                'riwayat_alkohol'   => $this->request->getVar('riwayat_alkohol', $this->filter),
+                'riwayat_merokok'   => $this->request->getVar('riwayat_merokok', $this->filter),
             ];
             
             // dd($field);
@@ -225,6 +229,43 @@ class C_Users extends BaseController
                     })
                 </script>");
         }
+    }
+    public function deleteProfileImg()
+    {
+        $id = $this->user_session['id'];
+        $data = $this->model->find($id);
+
+        $file = 'assets/img/'.$this->name.'/'.$data['img'];
+        if (is_file($file)) unlink($file);
+
+        // die;
+        $this->model->update($id, ['img'=>'']);
+        return redirect()->to($this->route)
+            ->with('message',
+            "<script>
+                Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Foto profil dihapus',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                })
+            </script>");
+    }
+
+    // ACCOUNT
+    public function account()
+    {
+        $id = $this->user_session['id'];
+        $data['data'] = $this->model->find($id);
+        $data['name'] = $this->name;
+        $data['route'] = $this->route;
+        $data['title'] = 'Account';
+
+        $data['content']   = view($this->name.'/account',$data);
+        $data['sidebar'] = view('dashboard/sidebar',$data);
+        return view('dashboard/header',$data);
     }
 
     public function updatePassword($id = null)
@@ -288,29 +329,5 @@ class C_Users extends BaseController
                     })
                 </script>");
         }
-    }
-
-    public function deleteProfileImg()
-    {
-        $id = $this->user_session['id'];
-        $data = $this->model->find($id);
-
-        $file = 'assets/img/'.$this->name.'/'.$data['img'];
-        if (is_file($file)) unlink($file);
-
-        // die;
-        $this->model->update($id, ['img'=>'']);
-        return redirect()->to($this->route)
-            ->with('message',
-            "<script>
-                Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Foto profil dihapus',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                })
-            </script>");
     }
 }

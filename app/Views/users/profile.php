@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h5 class="my-4">Profil</h5>
+            <h5 class="my-4"><?= isset($title) ? $title : '' ?></h5>
         </div>
     </div>
     <div class="row">
@@ -57,14 +57,15 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control <?= validation_show_error('nama') ? "is-invalid" : '' ?>" id="nama" name="nama" value="<?= old('nama')??$data['nama'] ?>" placeholder="Masukkan nama lengkap">
+                                    <input type="text" class="form-control <?= validation_show_error('nama') ? "is-invalid" : '' ?>" id="nama" name="nama" value="<?= old('nama')??$data['nama'] ?>" placeholder="Masukkan nama Anda">
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('nama') ?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                                    <select class="form-select <?= validation_show_error('jenis_kelamin') ? "is-invalid" : '' ?>" id="jenis_kelamin" name="jenis_kelamin">
+                                    <select class="form-select <?= validation_show_error('jenis_kelamin') ? "is-invalid" : '' ?>" id="jenis_kelamin" name="jenis_kelamin" data-dselect-clearable="true">
+                                        <option value="">~Pilih</option>
                                         <?php
                                         $jenis_kelamin = ['Laki-laki', 'Perempuan'];
                                         foreach ($jenis_kelamin as $v) : 
@@ -90,31 +91,97 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="alamat" class="form-label">Alamat</label>
-                                    <textarea class="form-control <?= validation_show_error('alamat') ? "is-invalid" : '' ?>" id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat"><?= old('alamat')??$data['alamat'] ?></textarea>
+                                    <label for="usia" class="form-label">Usia</label>
+                                    <input type="number" class="form-control <?= validation_show_error('usia') ? "is-invalid" : '' ?>" id="usia" name="usia" value="<?= old('usia')??$data['usia'] ?>" placeholder="Masukkan usia Anda">
                                     <div class="invalid-feedback">
-                                        <?= validation_show_error('alamat') ?>
+                                        <?= validation_show_error('usia') ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
-                                    <label for="telp" class="form-label">No. Telp</label>
-                                    <input type="number" class="form-control <?= validation_show_error('telp') ? "is-invalid" : '' ?>" id="telp" name="telp" value="<?= old('telp')??$data['telp'] ?>" placeholder="08xxx">
+                                    <label for="riwayat_diabetes" class="form-label">Riwayat Diabetes Mellitus</label>
+                                    <select class="form-select <?= validation_show_error('riwayat_diabetes') ? "is-invalid" : '' ?>" id="riwayat_diabetes" name="riwayat_diabetes" data-dselect-clearable="true">
+                                        <option value="">~Pilih</option>
+                                        <?php
+                                        $riwayat_diabetes = ['Ya', 'Tidak'];
+                                        foreach ($riwayat_diabetes as $v) : 
+                                            if (old('riwayat_diabetes')) {
+                                                if (old('riwayat_diabetes') == $v) {
+                                                    $selected = 'selected';
+                                                } else {
+                                                    $selected = '';
+                                                }
+                                            } else {
+                                                if ($data['riwayat_diabetes'] == $v) {
+                                                    $selected = 'selected';
+                                                } else {
+                                                    $selected = '';
+                                                }
+                                            }
+                                        ?>
+                                        <option value="<?= $v ?>" <?= $selected ?> ><?= $v ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                     <div class="invalid-feedback">
-                                        <?= validation_show_error('telp') ?>
+                                        <?= validation_show_error('riwayat_diabetes') ?>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" value="<?= $data['email'] ?>" id="email" disabled>
+                                    <label for="riwayat_diabetes" class="form-label">Riwayat Konsumsi Alkohol</label>
+                                    <select class="form-select <?= validation_show_error('riwayat_alkohol') ? "is-invalid" : '' ?>" id="riwayat_alkohol" name="riwayat_alkohol" data-dselect-clearable="true">
+                                        <option value="">~Pilih</option>
+                                        <?php
+                                        $riwayat_alkohol = ['Ya', 'Tidak'];
+                                        foreach ($riwayat_alkohol as $v) : 
+                                            if (old('riwayat_alkohol')) {
+                                                if (old('riwayat_alkohol') == $v) {
+                                                    $selected = 'selected';
+                                                } else {
+                                                    $selected = '';
+                                                }
+                                            } else {
+                                                if ($data['riwayat_alkohol'] == $v) {
+                                                    $selected = 'selected';
+                                                } else {
+                                                    $selected = '';
+                                                }
+                                            }
+                                        ?>
+                                        <option value="<?= $v ?>" <?= $selected ?> ><?= $v ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?= validation_show_error('riwayat_alkohol') ?>
+                                    </div>
                                 </div>
-                                <hr>
                                 <div class="mb-3">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#ubah_password">
-                                        <i class="fa-solid fa-lock me-2"></i>
-                                        <span class="align-middle">Ubah Password</span>
-                                    </a>
+                                    <label for="riwayat_merokok" class="form-label">Riwayat Merokok</label>
+                                    <select class="form-select <?= validation_show_error('riwayat_merokok') ? "is-invalid" : '' ?>" id="riwayat_merokok" name="riwayat_merokok" data-dselect-clearable="true">
+                                        <option value="">~Pilih</option>
+                                        <?php
+                                        $riwayat_merokok = ['Tidak pernah', 'Mantan perokok', 'Perokok'];
+                                        foreach ($riwayat_merokok as $v) : 
+                                            if (old('riwayat_merokok')) {
+                                                if (old('riwayat_merokok') == $v) {
+                                                    $selected = 'selected';
+                                                } else {
+                                                    $selected = '';
+                                                }
+                                            } else {
+                                                if ($data['riwayat_merokok'] == $v) {
+                                                    $selected = 'selected';
+                                                } else {
+                                                    $selected = '';
+                                                }
+                                            }
+                                        ?>
+                                        <option value="<?= $v ?>" <?= $selected ?> ><?= $v ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?= validation_show_error('riwayat_merokok') ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
