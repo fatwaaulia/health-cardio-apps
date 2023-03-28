@@ -44,7 +44,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					[
 						'text'    => 'Personal Information',
 						'url'     => 'profile',
-						'icon'    => 'fa-regular fa-user',
+						'icon'    => 'fa-solid fa-user',
 						'active'  => 'profile',
 						'role'    => ['3'],
 					],
@@ -56,7 +56,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					[
 						'text'    => 'Profile',
 						'url'     => 'profile',
-						'icon'    => 'fa-regular fa-user',
+						'icon'    => 'fa-solid fa-user',
 						'active'  => 'profile',
 						'role'    => ['1'],
 					],
@@ -132,7 +132,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						</a>
 						<div class="dropdown-menu dropdown-menu-end">
 							<a class="dropdown-item" href="<?= base_url().'/profile' ?>">
-								<i class="fa-regular fa-user me-1"></i>
+								<i class="fa-solid fa-user me-1"></i>
 								Profile
 							</a>
 								<div class="dropdown-divider"></div>
