@@ -83,13 +83,6 @@
                                         <?= validation_show_error('jenis_kelamin') ?>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="alamat" class="form-label">Alamat</label>
-                                    <textarea class="form-control <?= validation_show_error('alamat') ? 'is-invalid' : '' ?>" id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat"><?= old('alamat')??$data['alamat'] ?></textarea>
-                                    <div class="invalid-feedback">
-                                        <?= validation_show_error('alamat') ?>
-                                    </div>
-                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
@@ -111,13 +104,6 @@
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('id_role') ?>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telp" class="form-label">No. Telp</label>
-                                    <input type="number" class="form-control <?= validation_show_error('telp') ? 'is-invalid' : '' ?>" id="telp" name="telp" value="<?= old('telp')??$data['telp'] ?>" placeholder="08xxx">
-                                    <div class="invalid-feedback">
-                                        <?= validation_show_error('telp') ?>
                                     </div>
                                 </div>
                                 <div class="mb-3">

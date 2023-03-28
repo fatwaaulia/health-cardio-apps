@@ -98,6 +98,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php if($data['id_role'] == 3) : ?>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="riwayat_diabetes" class="form-label">Riwayat Diabetes Mellitus</label>
@@ -184,6 +185,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php endif; ?>
                         </div>
                         <button type="submit" class="btn btn-primary mt-3">Simpan Perubahan</button>
                     </form>

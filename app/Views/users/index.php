@@ -16,10 +16,7 @@
                             <th>Foto</th>
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
-                            <th>Alamat</th>
-                            <th>Telepon</th>
                             <th>Email</th>
-                            <th>Aktivasi</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -45,10 +42,7 @@
                             </td>
                             <td><?= $v['nama'] ?></td>
                             <td><?= $v['jenis_kelamin'] ?></td>
-                            <td><?= $v['alamat'] ?></td>
-                            <td><?= $v['telp'] ?></td>
                             <td><?= $v['email'] ?></td>
-                            <td><?= $v['activated_at'] != null ? date('d-m-Y H:i:s', strtotime($v['activated_at'])) : 'Belum aktivasi' ?></td>
                             <td>
                                 <?php if ($v['id_role'] != 1) : ?>
                                 <a href="<?= $route.'/edit/'.model('M_Env')->encode($v['id']) ?>">

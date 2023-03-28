@@ -23,16 +23,9 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'dashboard',
 						'role'    => ['1','2','3'],
 					],
-					[
-						'text'    => 'Personal Information',
-						'url'     => 'profile',
-						'icon'    => 'fa-regular fa-user',
-						'active'  => 'profile',
-						'role'    => ['1','2','3'],
-					],
 					// SUPERADMIN
 					[
-						'text'    => 'Kelola Pengguna',
+						'text'    => 'Manage Users',
 						'url'     => 'users',
 						'icon'    => 'fa-solid fa-user-group',
 						'active'  => 'users',
@@ -48,11 +41,24 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					// ADMIN
 					// == sidebar
 					// STARTED
-					// == sidebar
+					[
+						'text'    => 'Personal Information',
+						'url'     => 'profile',
+						'icon'    => 'fa-regular fa-user',
+						'active'  => 'profile',
+						'role'    => ['3'],
+					],
 					// SEMUA ROLE
 					[
 						'text'    => 'My Account',
 						'role'   => ['1','2','3'],
+					],
+					[
+						'text'    => 'Profile',
+						'url'     => 'profile',
+						'icon'    => 'fa-regular fa-user',
+						'active'  => 'profile',
+						'role'    => ['1'],
 					],
 					[
 						'text'    => 'Settings',
@@ -62,7 +68,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'role'    => ['1','2','3'],
 					],
 					[
-						'text'    => 'Keluar',
+						'text'    => 'Logout',
 						'url'     => 'logout',
 						'icon'    => 'fa-solid fa-arrow-right-from-bracket',
 						'active'  => '',
@@ -127,12 +133,12 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						<div class="dropdown-menu dropdown-menu-end">
 							<a class="dropdown-item" href="<?= base_url().'/profile' ?>">
 								<i class="fa-regular fa-user me-1"></i>
-								Profil
+								Profile
 							</a>
 								<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="<?= base_url().'/logout' ?>">
 								<i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
-								Keluar
+								Logout
 							</a>
 						</div>
 					</li>

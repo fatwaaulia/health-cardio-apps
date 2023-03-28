@@ -17,7 +17,7 @@ class C_Users extends BaseController
         $data['data'] = $this->model->findAll();
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Data Pengguna';
+        $data['title'] = 'Data Users';
 
         $data['content'] = view($this->name.'/index',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
@@ -52,20 +52,12 @@ class C_Users extends BaseController
         } elseif ($password != '' && $passconf != '') {
             $matches = 'required|min_length[8]|matches[password]';
         }
-        $telp = $this->request->getVar('telp', $this->filter);
-        if ($telp) {
-            $rule_telp = "numeric|min_length[10]|max_length[15]|is_unique[$this->name.telp,id,$id]";
-        } else {
-            $rule_telp = 'string';
-        }
         $rules = [
             'id_role'       => 'required',
             'nama'          => 'required',
             'passconf'      => $matches,
             'jenis_kelamin' => 'required',
             'img'           => 'max_size[img,1024]|ext_in[img,png,jpg,jpeg]',
-            'alamat'        => 'max_length[255]',
-            'telp'          => $rule_telp,
         ];
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput();
@@ -87,8 +79,6 @@ class C_Users extends BaseController
                 'password'      => $password != '' ? $this->model->password_hash($password) : $data['password'],
                 'jenis_kelamin' => $this->request->getVar('jenis_kelamin', $this->filter),
                 'img'           => $img_name,
-                'alamat'        => $this->request->getVar('alamat', $this->filter),
-                'telp'          => $this->request->getVar('telp', $this->filter),
             ];
             
             // dd($field);
@@ -175,21 +165,24 @@ class C_Users extends BaseController
         $id = $this->user_session['id'];
         $data = $this->model->find($id);
 
-        $telp = $this->request->getVar('telp', $this->filter);
-        if ($telp) {
-            $rule_telp = "numeric|min_length[10]|max_length[15]|is_unique[$this->name.telp,id,$id]";
+        if ($data['id_role'] == 3) {
+            $rules = [
+                'img'              => 'max_size[img,1024]|ext_in[img,png,jpg,jpeg]',
+                'nama'             => 'required',
+                'jenis_kelamin'    => 'required',
+                'usia'             => 'required',
+                'riwayat_diabetes' => 'required',
+                'riwayat_alkohol'  => 'required',
+                'riwayat_merokok'  => 'required',
+            ];
         } else {
-            $rule_telp = 'string';
+            $rules = [
+                'img'              => 'max_size[img,1024]|ext_in[img,png,jpg,jpeg]',
+                'nama'             => 'required',
+                'jenis_kelamin'    => 'required',
+                'usia'             => 'required',
+            ];
         }
-        $rules = [
-            'img'              => 'max_size[img,1024]|ext_in[img,png,jpg,jpeg]',
-            'nama'             => 'required',
-            'jenis_kelamin'    => 'required',
-            'usia'             => 'required',
-            'riwayat_diabetes' => 'required',
-            'riwayat_alkohol'  => 'required',
-            'riwayat_merokok'  => 'required',
-        ];
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput();
         }else {
