@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                                    <select class="form-select <?= validation_show_error('jenis_kelamin') ? "is-invalid" : '' ?>" id="jenis_kelamin" name="jenis_kelamin" data-dselect-clearable="true">
+                                    <select class="form-select <?= validation_show_error('jenis_kelamin') ? "is-invalid" : '' ?>" id="jenis_kelamin" name="jenis_kelamin">
                                         <option value="">~Pilih</option>
                                         <?php
                                         $jenis_kelamin = ['Laki-laki', 'Perempuan'];
@@ -102,7 +102,7 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="riwayat_diabetes" class="form-label">Riwayat Diabetes Mellitus</label>
-                                    <select class="form-select <?= validation_show_error('riwayat_diabetes') ? "is-invalid" : '' ?>" id="riwayat_diabetes" name="riwayat_diabetes" data-dselect-clearable="true">
+                                    <select class="form-select <?= validation_show_error('riwayat_diabetes') ? "is-invalid" : '' ?>" id="riwayat_diabetes" name="riwayat_diabetes">
                                         <option value="">~Pilih</option>
                                         <?php
                                         $riwayat_diabetes = ['Ya', 'Tidak'];
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="riwayat_diabetes" class="form-label">Riwayat Konsumsi Alkohol</label>
-                                    <select class="form-select <?= validation_show_error('riwayat_alkohol') ? "is-invalid" : '' ?>" id="riwayat_alkohol" name="riwayat_alkohol" data-dselect-clearable="true">
+                                    <select class="form-select <?= validation_show_error('riwayat_alkohol') ? "is-invalid" : '' ?>" id="riwayat_alkohol" name="riwayat_alkohol">
                                         <option value="">~Pilih</option>
                                         <?php
                                         $riwayat_alkohol = ['Ya', 'Tidak'];
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="riwayat_merokok" class="form-label">Riwayat Merokok</label>
-                                    <select class="form-select <?= validation_show_error('riwayat_merokok') ? "is-invalid" : '' ?>" id="riwayat_merokok" name="riwayat_merokok" data-dselect-clearable="true">
+                                    <select class="form-select <?= validation_show_error('riwayat_merokok') ? "is-invalid" : '' ?>" id="riwayat_merokok" name="riwayat_merokok">
                                         <option value="">~Pilih</option>
                                         <?php
                                         $riwayat_merokok = ['Tidak pernah', 'Mantan perokok', 'Perokok'];
