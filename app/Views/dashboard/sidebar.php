@@ -55,6 +55,13 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'screening',
 						'role'    => ['3'],
 					],
+					[
+						'text'    => 'My Diary',
+						'url'     => 'my-diary',
+						'icon'    => 'fa-solid fa-book',
+						'active'  => 'my-diary',
+						'role'    => ['3'],
+					],
 					// SEMUA ROLE
 					[
 						'text'    => 'My Account',

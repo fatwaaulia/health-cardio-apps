@@ -14,10 +14,10 @@ class C_Screening extends BaseController
 
     public function myDiary()
     {
-        $data['data'] = $this->model->findAll();
+        $data['data'] = $this->model->orderBy('id','DESC')->findAll();
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Data ' . ucwords(str_replace('_', ' ', $this->name));
+        $data['title'] = 'My Diary';
 
         $data['content'] = view($this->name.'/my_diary',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
@@ -160,13 +160,13 @@ class C_Screening extends BaseController
                         + $skor_riwayat_diabetes
                         + $skor_aktivitas_fisik;
 
-            // Resiko
+            // Risiko
             if (in_array($total_skor, range(-7, 1))) {
-                $resiko = 'Risiko rendah';
+                $risiko = 'Risiko rendah';
             } elseif (in_array($total_skor, range(2, 4))) {
-                $resiko = 'Risiko sedang';
+                $risiko = 'Risiko sedang';
             } elseif ($total_skor > 5) {
-                $resiko = 'Risiko tinggi';
+                $risiko = 'Risiko tinggi';
             }
 
             $field = [
@@ -190,7 +190,7 @@ class C_Screening extends BaseController
                 'aktivitas_fisik'        => $aktivitas_fisik,
                 'skor_aktivitas_fisik'   => $skor_aktivitas_fisik,
                 'total_skor'             => $total_skor,
-                'resiko'                 => $resiko,
+                'risiko'                 => $risiko,
             ];
             
             // dd($field);
