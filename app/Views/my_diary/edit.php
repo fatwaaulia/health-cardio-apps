@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Hasil BMI :</label>
-                                    <span style="color:#000"><?= $data['bmi'] ?></span> <span class="text-secondary"> kg/m2</span>
+                                    <span style="color:#000"><?= $data['indeks_massa_tubuh'] ?></span> <span class="text-secondary"> kg/m2</span>
                                 </div>
                                 <hr>
                                 <div class="mb-3">

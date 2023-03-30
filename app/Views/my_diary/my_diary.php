@@ -58,7 +58,7 @@
                             <td><?= $v['usia'] ?></td>
                             <td><?= $v['tinggi_badan'] ?></td>
                             <td><?= $v['berat_badan'] ?></td>
-                            <td><?= $v['bmi'] ?></td>
+                            <td><?= $v['indeks_massa_tubuh'] ?></td>
                             <td><?= $v['tekanan_darah'] ?></td>
                             <td><?= $v['denyut_jantung'] ?></td>
                             <td><?= $v['riwayat_merokok'] ?></td>

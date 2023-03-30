@@ -28,8 +28,8 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Hasil BMI :</label>
-                                    <span id="element_bmi" style="color:#000"></span> <span class="text-secondary"> kg/m2</span>
+                                    <label class="form-label">Hasil indeks_massa_tubuh :</label>
+                                    <span id="element_indeks_massa_tubuh" style="color:#000"></span> <span class="text-secondary"> kg/m2</span>
                                 </div>
                                 <hr>
                                 <div class="mb-3">
@@ -104,16 +104,16 @@
 <script>
 let tinggi_badan = document.getElementById('tinggi_badan');
 let berat_badan = document.getElementById('berat_badan');
-let element_bmi = document.getElementById('element_bmi');
+let element_indeks_massa_tubuh = document.getElementById('element_indeks_massa_tubuh');
 [tinggi_badan, berat_badan].forEach(element => {
     element.addEventListener("input", () => {
         const tinggi_badan_m2 = ((tinggi_badan.value*0.01) * (tinggi_badan.value*0.01)).toFixed(2);
         const berat_badan_kg = (berat_badan.value*1).toFixed(2);
-        const bmi = berat_badan_kg / tinggi_badan_m2;
-        if (bmi === Infinity || isNaN(bmi)) {
-            element_bmi.innerHTML = '';
+        const indeks_massa_tubuh = berat_badan_kg / tinggi_badan_m2;
+        if (indeks_massa_tubuh === Infinity || isNaN(indeks_massa_tubuh)) {
+            element_indeks_massa_tubuh.innerHTML = '';
         } else {
-            element_bmi.innerHTML = bmi.toFixed(2);
+            element_indeks_massa_tubuh.innerHTML = indeks_massa_tubuh.toFixed(2);
         }
     });
 });

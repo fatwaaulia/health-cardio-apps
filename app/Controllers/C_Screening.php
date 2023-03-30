@@ -103,17 +103,17 @@ class C_Screening extends BaseController
                 $skor_tekanan_darah = null;
             }
 
-            // BMI
+            // Indeks Massa Tubuh
             $tinggi_badan_m2 = round(($tinggi_badan*0.01) * ($tinggi_badan*0.01), 2);
-            $bmi = round($berat_badan / $tinggi_badan_m2, 2);
-            if (in_array($bmi, range(13.79, 25.99))) {
-                $skor_bmi = 0;
-            } elseif (in_array($bmi, range(26, 29.99))) {
-                $skor_bmi = 1;
-            } elseif (in_array($bmi, range(30, 35.589))) {
-                $skor_bmi = 2;
+            $indeks_massa_tubuh = round($berat_badan / $tinggi_badan_m2, 2);
+            if (in_array($indeks_massa_tubuh, range(13.79, 25.99))) {
+                $skor_indeks_massa_tubuh = 0;
+            } elseif (in_array($indeks_massa_tubuh, range(26, 29.99))) {
+                $skor_indeks_massa_tubuh = 1;
+            } elseif (in_array($indeks_massa_tubuh, range(30, 35.589))) {
+                $skor_indeks_massa_tubuh = 2;
             } else {
-                $skor_bmi = null;
+                $skor_indeks_massa_tubuh = null;
             }
 
             // Riwayat merokok
@@ -155,7 +155,7 @@ class C_Screening extends BaseController
             $total_skor = $skor_jenis_kelamin
                         + $skor_usia
                         + $skor_tekanan_darah
-                        + $skor_bmi
+                        + $skor_indeks_massa_tubuh
                         + $skor_riwayat_merokok
                         + $skor_riwayat_diabetes
                         + $skor_aktivitas_fisik;
@@ -177,8 +177,8 @@ class C_Screening extends BaseController
                 'skor_usia'              => $skor_usia,
                 'tinggi_badan'           => $tinggi_badan,
                 'berat_badan'            => $berat_badan,
-                'bmi'                    => $bmi,
-                'skor_bmi'               => $skor_bmi,
+                'indeks_massa_tubuh'                    => $indeks_massa_tubuh,
+                'skor_indeks_massa_tubuh'               => $skor_indeks_massa_tubuh,
                 'tekanan_darah'          => $tekanan_darah_mm . '/' . $tekanan_darah_hg,
                 'skor_tekanan_darah'     => $skor_tekanan_darah,
                 'denyut_jantung'         => $denyut_jantung,
