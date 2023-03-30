@@ -29,6 +29,7 @@ class M_Screening extends Model
         'aktivitas_fisik',
         'skor_aktivitas_fisik',
         'total_skor',
+        'resiko',
     ];
     protected $useTimestamps = true;
 }

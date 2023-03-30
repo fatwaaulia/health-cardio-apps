@@ -12,14 +12,14 @@ class C_Screening extends BaseController
         $this->name = 'screening'; // title, nama folder view. | spasi menggunakan garis bawah(_)
     }
 
-    public function index()
+    public function myDiary()
     {
         $data['data'] = $this->model->findAll();
         $data['name'] = $this->name;
         $data['route'] = $this->route;
         $data['title'] = 'Data ' . ucwords(str_replace('_', ' ', $this->name));
 
-        $data['content'] = view($this->name.'/index',$data);
+        $data['content'] = view($this->name.'/my_diary',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
         return view('dashboard/header',$data);
     }
@@ -160,6 +160,15 @@ class C_Screening extends BaseController
                         + $skor_riwayat_diabetes
                         + $skor_aktivitas_fisik;
 
+            // Resiko
+            if (in_array($total_skor, range(-7, 1))) {
+                $resiko = 'Risiko rendah';
+            } elseif (in_array($total_skor, range(2, 4))) {
+                $resiko = 'Risiko sedang';
+            } elseif ($total_skor > 5) {
+                $resiko = 'Risiko tinggi';
+            }
+
             $field = [
                 'id_user'                => $this->user_session['id'],
                 'jenis_kelamin'          => $jenis_kelamin,
@@ -181,6 +190,7 @@ class C_Screening extends BaseController
                 'aktivitas_fisik'        => $aktivitas_fisik,
                 'skor_aktivitas_fisik'   => $skor_aktivitas_fisik,
                 'total_skor'             => $total_skor,
+                'resiko'                 => $resiko,
             ];
             
             // dd($field);
