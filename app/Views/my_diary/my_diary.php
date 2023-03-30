@@ -83,9 +83,9 @@
                                             <div class="modal-body">
                                                 <table>
                                                     <tr>
-                                                        <td class="fw-600">Nama</td>
-                                                        <td> :&nbsp;</td>
-                                                        <td> <?= $v['id_user'] ?> </td>
+                                                        <td class="fw-500">Nama</td>
+                                                        <td class="fw-500"> :&nbsp;</td>
+                                                        <td> <?= model('M_Users')->where('id',$v['id_user'])->first()['nama'] ?> </td>
                                                     </tr>
                                                 </table>
                                             </div>

@@ -62,8 +62,8 @@
                                             <div class="modal-body">
                                                 <table>
                                                     <tr>
-                                                        <td class="fw-600">Nama</td>
-                                                        <td class="fw-600"> : &nbsp;</td>
+                                                        <td class="fw-500">Nama</td>
+                                                        <td class="fw-500"> : &nbsp;</td>
                                                         <td> <?= $v['nama'] ?> </td>
                                                     </tr>
                                                     <tr>
