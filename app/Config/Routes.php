@@ -85,15 +85,14 @@ $routes->group('form-input', ['filter' => 'Superadmin'], static function ($route
 // Screening
 $routes->group('screening', ['filter' => 'Pasien'], static function ($routes) {
     $routes->get('/', 'C_Screening::screening');
-    $routes->get('new', 'C_Screening::new');
     $routes->post('create', 'C_Screening::create');
-    $routes->post('delete/(:segment)', 'C_Screening::delete/$1');
 });
 // My Diary
 $routes->group('my-diary', ['filter' => 'Pasien'], static function ($routes) {
     $routes->get('/', 'C_MyDiary::myDiary');
     $routes->get('edit/(:segment)', 'C_MyDiary::edit/$1');
     $routes->post('update/(:segment)', 'C_MyDiary::update/$1');
+    $routes->post('delete/(:segment)', 'C_MyDiary::delete/$1');
 });
 
 /*

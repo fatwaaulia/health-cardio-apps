@@ -83,6 +83,11 @@
                                             <div class="modal-body">
                                                 <table>
                                                     <tr>
+                                                        <td class="fw-500">Tanggal Pemeriksaan</td>
+                                                        <td class="fw-500"> :&nbsp;</td>
+                                                        <td> <?= date('d M Y H:i:s', strtotime($v['created_at'])) ?> </td>
+                                                    </tr>
+                                                    <tr>
                                                         <td class="fw-500">Nama</td>
                                                         <td class="fw-500"> :&nbsp;</td>
                                                         <td> <?= model('M_Users')->where('id',$v['id_user'])->first()['nama'] ?> </td>

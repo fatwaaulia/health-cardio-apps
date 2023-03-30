@@ -66,9 +66,6 @@ class C_MyDiary extends BaseController
         $id = model('M_Env')->decode($id);
         $data = $this->model->find($id);
 
-        $file = 'assets/img/'.$this->name.'/'.$data['img'];
-        if (is_file($file)) unlink($file);
-
         // die;
         $this->model->delete($id);
         return redirect()->to($this->route)
@@ -78,30 +75,6 @@ class C_MyDiary extends BaseController
                 position: 'top-end',
                 icon: 'success',
                 title: 'Hapus data berhasil',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                })
-            </script>");
-    }
-
-    public function deleteImg($id = null)
-    {
-        $id = model('M_Env')->decode($id);
-        $data = $this->model->find($id);
-
-        $file = 'assets/img/'.$this->name.'/'.$data['img'];
-        if (is_file($file)) unlink($file);
-
-        // die;
-        $this->model->update($id, ['img'=>'']);
-        return redirect()->to($this->route .'/edit/'.$id)
-            ->with('message',
-            "<script>
-                Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Gambar dihapus',
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
