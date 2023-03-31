@@ -31,13 +31,6 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'users',
 						'role'    => ['1'],
 					],
-					[
-						'text'    => 'Form Input',
-						'url'     => 'form-input',
-						'icon'    => 'fa-solid fa-keyboard',
-						'active'  => 'form-input',
-						'role'    => ['1'],
-					],
 					// ADMIN
 					// == sidebar
 					// STARTED
