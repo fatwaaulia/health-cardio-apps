@@ -14,7 +14,11 @@ class C_MyDiary extends BaseController
 
     public function myDiary()
     {
-        $data['data'] = $this->model->where('id_user',$this->user_session['id'])->orderBy('id','DESC')->findAll();
+        if ($this->user_session['id_role'] == 1) {
+            $data['data'] = $this->model->orderBy('id','DESC')->findAll();
+        } else {
+            $data['data'] = $this->model->where('id_user',$this->user_session['id'])->orderBy('id','DESC')->findAll();
+        }
         $data['name'] = $this->name;
         $data['route'] = $this->route;
         $data['title'] = ucwords(str_replace('-', ' ', service('uri')->getSegment(1)));
