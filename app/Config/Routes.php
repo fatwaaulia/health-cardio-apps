@@ -62,13 +62,20 @@ $routes->post('update/password', 'C_Users::updatePassword');
 });
 
 // SUPERADMIN
-// User
+// Users
 $routes->group('users', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->get('/', 'C_Users::index');
     $routes->get('edit/(:segment)', 'C_Users::edit/$1');
     $routes->post('update/(:segment)', 'C_Users::update/$1');
     $routes->post('delete/(:segment)', 'C_Users::delete/$1');
     $routes->post('delete-image/(:segment)', 'C_Users::deleteImg/$1');
+});
+// Patient Screening
+$routes->group('patient-screening', ['filter' => 'Superadmin'], static function ($routes) {
+    $routes->get('/', 'C_MyDiary::myDiary');
+    $routes->get('edit/(:segment)', 'C_MyDiary::edit/$1');
+    $routes->post('update/(:segment)', 'C_MyDiary::update/$1');
+    $routes->post('delete/(:segment)', 'C_MyDiary::delete/$1');
 });
 
 // PASIEN

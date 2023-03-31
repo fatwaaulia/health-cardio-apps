@@ -31,6 +31,17 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'users',
 						'role'    => ['1'],
 					],
+					[
+						'text'    => 'Patient',
+						'role'   => ['1','2','3'],
+					],
+					[
+						'text'    => 'Screening',
+						'url'     => 'patient-screening',
+						'icon'    => 'fa-solid fa-square-poll-vertical',
+						'active'  => 'patient-screening',
+						'role'    => ['1'],
+					],
 					// ADMIN
 					// == sidebar
 					// STARTED

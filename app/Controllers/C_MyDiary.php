@@ -17,7 +17,7 @@ class C_MyDiary extends BaseController
         $data['data'] = $this->model->orderBy('id','DESC')->findAll();
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'My Diary';
+        $data['title'] = ucwords(str_replace('-', ' ', service('uri')->getSegment(1)));
 
         $data['content'] = view($this->name.'/my_diary',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
@@ -30,7 +30,7 @@ class C_MyDiary extends BaseController
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Edit ' . ucwords(str_replace('_', ' ', $this->name));
+        $data['title'] = 'Edit ' . ucwords(str_replace('-', ' ', service('uri')->getSegment(1)));
         
         $data['content']   = view($this->name.'/edit',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
