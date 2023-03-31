@@ -12,18 +12,6 @@ class C_Screening extends BaseController
         $this->name = 'screening'; // title, nama folder view. | spasi menggunakan garis bawah(_)
     }
 
-    public function myDiary()
-    {
-        $data['data'] = $this->model->orderBy('id','DESC')->findAll();
-        $data['name'] = $this->name;
-        $data['route'] = $this->route;
-        $data['title'] = 'My Diary';
-
-        $data['content'] = view($this->name.'/my_diary',$data);
-        $data['sidebar'] = view('dashboard/sidebar',$data);
-        return view('dashboard/header',$data);
-    }
-
     public function screening() 
     {
         $id = $this->user_session['id'];
