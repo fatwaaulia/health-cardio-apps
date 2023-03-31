@@ -70,16 +70,6 @@ $routes->group('users', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->post('delete/(:segment)', 'C_Users::delete/$1');
     $routes->post('delete-image/(:segment)', 'C_Users::deleteImg/$1');
 });
-// Form Input
-$routes->group('form-input', ['filter' => 'Superadmin'], static function ($routes) {
-    $routes->get('/', 'C_FormInput::index');
-    $routes->get('new', 'C_FormInput::new');
-    $routes->post('create', 'C_FormInput::create');
-    $routes->get('edit/(:segment)', 'C_FormInput::edit/$1');
-    $routes->post('update/(:segment)', 'C_FormInput::update/$1');
-    $routes->post('delete/(:segment)', 'C_FormInput::delete/$1');
-    $routes->post('delete-image/(:segment)', 'C_FormInput::deleteImg/$1');
-});
 
 // PASIEN
 // Screening
