@@ -70,8 +70,8 @@ $routes->group('users', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->post('delete/(:segment)', 'C_Users::delete/$1');
     $routes->post('delete-image/(:segment)', 'C_Users::deleteImg/$1');
 });
-// Patient Screening
-$routes->group('patient-screening', ['filter' => 'Superadmin'], static function ($routes) {
+// Screening Pasien
+$routes->group('screening-pasien', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->get('/', 'C_MyDiary::myDiary');
     $routes->get('edit/(:segment)', 'C_MyDiary::edit/$1');
     $routes->post('update/(:segment)', 'C_MyDiary::update/$1');

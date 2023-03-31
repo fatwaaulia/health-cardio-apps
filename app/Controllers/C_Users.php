@@ -17,7 +17,7 @@ class C_Users extends BaseController
         $data['data'] = $this->model->findAll();
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Data Users';
+        $data['title'] = 'Data Pengguna';
 
         $data['content'] = view($this->name.'/index',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
@@ -30,7 +30,7 @@ class C_Users extends BaseController
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Edit User';
+        $data['title'] = 'Edit Pengguna';
         
         $data['content']   = view($this->name.'/edit',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);

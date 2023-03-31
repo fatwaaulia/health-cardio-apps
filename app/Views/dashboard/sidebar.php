@@ -25,26 +25,30 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					],
 					// SUPERADMIN
 					[
-						'text'    => 'Manage Users',
+						'text'    => 'Kelola Pengguna',
 						'url'     => 'users',
 						'icon'    => 'fa-solid fa-user-group',
 						'active'  => 'users',
 						'role'    => ['1'],
 					],
 					[
-						'text'    => 'Patient',
-						'role'   => ['1','2','3'],
+						'text'    => 'Pasien',
+						'role'   => ['1'],
 					],
 					[
 						'text'    => 'Screening',
-						'url'     => 'patient-screening',
+						'url'     => 'screening-pasien',
 						'icon'    => 'fa-solid fa-square-poll-vertical',
-						'active'  => 'patient-screening',
+						'active'  => 'screening-pasien',
 						'role'    => ['1'],
 					],
 					// ADMIN
 					// == sidebar
 					// STARTED
+					[
+						'text'    => 'Pemeriksaan',
+						'role'   => ['3'],
+					],
 					[
 						'text'    => 'Personal Information',
 						'url'     => 'profile',
@@ -68,25 +72,25 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					],
 					// SEMUA ROLE
 					[
-						'text'    => 'My Account',
+						'text'    => 'Akun Saya',
 						'role'   => ['1','2','3'],
 					],
 					[
-						'text'    => 'Profile',
+						'text'    => 'Profil',
 						'url'     => 'profile',
 						'icon'    => 'fa-solid fa-user',
 						'active'  => 'profile',
 						'role'    => ['1'],
 					],
 					[
-						'text'    => 'Settings',
+						'text'    => 'Pengaturan',
 						'url'     => 'settings',
 						'icon'    => 'fa-solid fa-gear',
 						'active'  => 'settings',
 						'role'    => ['1','2','3'],
 					],
 					[
-						'text'    => 'Logout',
+						'text'    => 'Keluar',
 						'url'     => 'logout',
 						'icon'    => 'fa-solid fa-arrow-right-from-bracket',
 						'active'  => '',
@@ -151,12 +155,12 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						<div class="dropdown-menu dropdown-menu-end">
 							<a class="dropdown-item" href="<?= base_url().'/profile' ?>">
 								<i class="fa-solid fa-user me-1"></i>
-								Profile
+								Profil
 							</a>
 								<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="<?= base_url().'/logout' ?>">
 								<i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
-								Logout
+								Keluar
 							</a>
 						</div>
 					</li>
