@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Hasil indeks_massa_tubuh :</label>
+                                    <label class="form-label">Hasil BMI :</label>
                                     <span id="element_indeks_massa_tubuh" style="color:#000"></span> <span class="text-secondary"> kg/m2</span>
                                 </div>
                                 <hr>

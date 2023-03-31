@@ -94,11 +94,11 @@ class C_Screening extends BaseController
             // Indeks Massa Tubuh
             $tinggi_badan_m2 = round(($tinggi_badan*0.01) * ($tinggi_badan*0.01), 2);
             $indeks_massa_tubuh = round($berat_badan / $tinggi_badan_m2, 2);
-            if (in_array($indeks_massa_tubuh, range(13.79, 25.99))) {
+            if ($indeks_massa_tubuh >= 13.79 AND $indeks_massa_tubuh <= 25.99) {
                 $skor_indeks_massa_tubuh = 0;
-            } elseif (in_array($indeks_massa_tubuh, range(26, 29.99))) {
+            } elseif ($indeks_massa_tubuh >= 26 AND $indeks_massa_tubuh <= 29.99) {
                 $skor_indeks_massa_tubuh = 1;
-            } elseif (in_array($indeks_massa_tubuh, range(30, 35.589))) {
+            } elseif ($indeks_massa_tubuh >= 30 AND $indeks_massa_tubuh <= 35.58) {
                 $skor_indeks_massa_tubuh = 2;
             } else {
                 $skor_indeks_massa_tubuh = null;
@@ -158,27 +158,27 @@ class C_Screening extends BaseController
             }
 
             $field = [
-                'id_user'                => $this->user_session['id'],
-                'jenis_kelamin'          => $jenis_kelamin,
-                'skor_jenis_kelamin'     => $skor_jenis_kelamin,
-                'usia'                   => $usia,
-                'skor_usia'              => $skor_usia,
-                'tinggi_badan'           => $tinggi_badan,
-                'berat_badan'            => $berat_badan,
-                'indeks_massa_tubuh'                    => $indeks_massa_tubuh,
-                'skor_indeks_massa_tubuh'               => $skor_indeks_massa_tubuh,
-                'tekanan_darah'          => $tekanan_darah_mm . '/' . $tekanan_darah_hg,
-                'skor_tekanan_darah'     => $skor_tekanan_darah,
-                'denyut_jantung'         => $denyut_jantung,
-                'riwayat_merokok'        => $riwayat_merokok,
-                'skor_riwayat_merokok'   => $skor_riwayat_merokok,
-                'riwayat_alkohol'        => $this->user_session['riwayat_alkohol'],
-                'riwayat_diabetes'       => $riwayat_diabetes,
-                'skor_riwayat_diabetes'  => $skor_riwayat_diabetes,
-                'aktivitas_fisik'        => $aktivitas_fisik,
-                'skor_aktivitas_fisik'   => $skor_aktivitas_fisik,
-                'total_skor'             => $total_skor,
-                'risiko'                 => $risiko,
+                'id_user'                 => $this->user_session['id'],
+                'jenis_kelamin'           => $jenis_kelamin,
+                'skor_jenis_kelamin'      => $skor_jenis_kelamin,
+                'usia'                    => $usia,
+                'skor_usia'               => $skor_usia,
+                'tinggi_badan'            => $tinggi_badan,
+                'berat_badan'             => $berat_badan,
+                'indeks_massa_tubuh'      => $indeks_massa_tubuh,
+                'skor_indeks_massa_tubuh' => $skor_indeks_massa_tubuh,
+                'tekanan_darah'           => $tekanan_darah_mm . '/' . $tekanan_darah_hg,
+                'skor_tekanan_darah'      => $skor_tekanan_darah,
+                'denyut_jantung'          => $denyut_jantung,
+                'riwayat_merokok'         => $riwayat_merokok,
+                'skor_riwayat_merokok'    => $skor_riwayat_merokok,
+                'riwayat_alkohol'         => $this->user_session['riwayat_alkohol'],
+                'riwayat_diabetes'        => $riwayat_diabetes,
+                'skor_riwayat_diabetes'   => $skor_riwayat_diabetes,
+                'aktivitas_fisik'         => $aktivitas_fisik,
+                'skor_aktivitas_fisik'    => $skor_aktivitas_fisik,
+                'total_skor'              => $total_skor,
+                'risiko'                  => $risiko,
             ];
             
             // dd($field);

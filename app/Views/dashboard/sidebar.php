@@ -47,7 +47,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 					// STARTED
 					[
 						'text'    => 'Pemeriksaan',
-						'role'   => ['3'],
+						'role'    => ['3'],
 					],
 					[
 						'text'    => 'Personal Information',
