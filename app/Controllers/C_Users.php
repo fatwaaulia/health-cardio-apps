@@ -30,7 +30,7 @@ class C_Users extends BaseController
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Edit Pengguna';
+        $data['title'] = 'Edit User';
         
         $data['content']   = view($this->name.'/edit',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
