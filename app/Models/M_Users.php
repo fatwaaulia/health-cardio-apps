@@ -8,7 +8,6 @@ class M_Users extends Model
 {
     protected $table         = 'users';
     protected $allowedFields = [
-        'id_role',
         'nama',
         'email',
         'password',

@@ -87,20 +87,9 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="id_role" class="form-label">Role</label>
-                                    <select class="form-select <?= validation_show_error('id_role') ? 'is-invalid' : '' ?>" id="id_role" name="id_role">
-                                        <?php
-                                        $role = model('M_Role')->find(['2', '3']);
-                                        foreach ($role as $v) :     
-                                            if (old('id_role') == $v['id']) {
-                                                $selected = 'selected';
-                                            }elseif ($data['id_role'] == $v['id']) {
-                                                $selected = 'selected';
-                                            } else {
-                                                $selected = '';
-                                            }
-                                        ?>
-                                        <option value="<?= $v['id'] ?>" <?= $selected ?> ><?= $v['nama'] ?></option>
-                                        <?php endforeach; ?>
+                                    <select class="form-select" disabled>
+
+                                        <option><?= $role = model('M_Role')->where('id',$data['id_role'])->first()['nama'] ?></option>
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('id_role') ?>

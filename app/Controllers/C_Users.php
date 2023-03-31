@@ -53,7 +53,6 @@ class C_Users extends BaseController
             $matches = 'required|min_length[8]|matches[password]';
         }
         $rules = [
-            'id_role'       => 'required',
             'nama'          => 'required',
             'passconf'      => $matches,
             'jenis_kelamin' => 'required',
@@ -74,7 +73,6 @@ class C_Users extends BaseController
             }
 
             $field = [
-                'id_role'       => $this->request->getVar('id_role', $this->filter),
                 'nama'          => $this->request->getVar('nama', $this->filter),
                 'password'      => $password != '' ? $this->model->password_hash($password) : $data['password'],
                 'jenis_kelamin' => $this->request->getVar('jenis_kelamin', $this->filter),
