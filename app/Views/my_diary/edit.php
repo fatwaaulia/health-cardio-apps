@@ -13,10 +13,10 @@
                         <?= csrf_field(); ?>
                         <div class="row">
                             <div class="col-lg-6">
-                            <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
                                         <?php
+                                        $id_user_session = session()->get('user')['id_role'];
                                         if ($data['risiko'] == 'Risiko rendah') {
                                             $color_risiko = 'text-success';
                                         } elseif ($data['risiko'] == 'Risiko sedang') {
@@ -29,6 +29,7 @@
                                             <a data-bs-toggle="modal" data-bs-target="#modalRisiko">
                                                 <?= $data['risiko'] ?>
                                                 <i class="fa-solid fa-circle-info"></i>
+                                                <?= $id_user_session == 1 ? '<span class="text-secondary">(total skor: '. $data['total_skor'] .')</span>' : '' ?>
                                             </a>
                                         </div>
                                     </div>
@@ -37,30 +38,59 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="mb-3">
+                            <div class="col-lg-6">
+                            <!--  -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <hr>
+                                <div class="mb-3">
+                                    <label class="form-label">Jenis Kelamin</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_jenis_kelamin'] .')</span>' : '' ?>
+                                    <input type="text" class="form-control" value="<?= $data['jenis_kelamin'] ?>" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Usia</label><span class="text-secondary"> (tahun)</span> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_usia'] .')</span>' : '' ?>
+                                    <input type="number" class="form-control" value="<?= $data['usia'] ?>" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Riwayat Merokok</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_riwayat_merokok'] .')</span>' : '' ?>
+                                    <input type="text" class="form-control" value="<?= $data['riwayat_merokok'] ?>" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Riwayat Alkohol</label>
+                                    <input type="text" class="form-control" value="<?= $data['riwayat_alkohol'] ?>" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Riwayat Diabetes</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_riwayat_diabetes'] .')</span>' : '' ?>
+                                    <input type="text" class="form-control" value="<?= $data['riwayat_diabetes'] ?>" disabled>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <hr>
+                                <div class="mb-3">
                                     <label for="tinggi_badan" class="form-label">Tinggi Badan</label><span class="text-secondary"> (cm)</span>
                                     <input type="number" class="form-control" value="<?= $data['tinggi_badan'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="berat_badan" class="form-label">Berat Badan</label><span class="text-secondary"> (kg)</span>
+                                    <label class="form-label">Berat Badan</label><span class="text-secondary"> (kg)</span>
                                     <input type="number" class="form-control" value="<?= $data['berat_badan'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Hasil BMI :</label>
-                                    <span style="color:#000"><?= $data['indeks_massa_tubuh'] ?></span> <span class="text-secondary"> kg/m2</span>
+                                    <span style="color:#000"><?= $data['indeks_massa_tubuh'] ?></span> <span class="text-secondary"> kg/m2</span> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_indeks_massa_tubuh'] .')</span>' : '' ?>
                                 </div>
                                 <hr>
                                 <div class="mb-3">
-                                    <label for="tekanan_darah_hh" class="form-label">Tekanan Darah</label> <span class="text-secondary"> (mmHg)</span>
+                                    <label class="form-label">Tekanan Darah</label> <span class="text-secondary"> (mmHg)</span> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_tekanan_darah'] .')</span>' : '' ?>
                                     <input type="text" class="form-control" value="<?= $data['tekanan_darah'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="denyut_jantung" class="form-label">Denyut Jantung</label><span class="text-secondary"> (/menit)</span>
+                                    <label class="form-label">Denyut Jantung</label><span class="text-secondary"> (/menit)</span>
                                     <input type="number" class="form-control" value="<?= $data['denyut_jantung'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="aktivitas_fisik" class="form-label">Aktivitas Fisik Mingguan</label> 
+                                    <label class="form-label">Aktivitas Fisik Mingguan</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_aktivitas_fisik'] .')</span>' : '' ?>
                                     <a>
                                         <span data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-info"></i></span>
                                     </a>
@@ -71,10 +101,8 @@
                                         <?= validation_show_error('aktivitas_fisik') ?>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
                                 <div class="mb-3">
-                                    <label for="deskripsi" class="form-label">Catatan</label>
+                                    <label class="form-label">Catatan</label>
                                     <textarea class="form-control <?= validation_show_error('deskripsi') ? 'is-invalid' : '' ?>" id="deskripsi" name="deskripsi" rows="3" placeholder="Tulis catatan"><?= old('deskripsi')??$data['deskripsi'] ?></textarea>
                                     <div class="invalid-feedback">
                                         <?= validation_show_error('deskripsi') ?>

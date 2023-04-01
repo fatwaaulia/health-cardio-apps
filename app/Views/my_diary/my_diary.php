@@ -51,43 +51,23 @@
                                 $color_risiko = 'text-danger';
                             }
                             ?>
-                                <div class="<?= $color_risiko ?>">
-                                    <?= $v['risiko'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['total_skor'] .')</span>' : '' ?>
-                                </div>  
+                                <a href="<?= $route.'/edit/'.model('M_Env')->encode($v['id']) ?>">
+                                    <div class="<?= $color_risiko ?>">
+                                        <?= $v['risiko'] ?> <i class="fa-solid fa-circle-info"></i>
+                                    </div>  
+                                </a>
                             </td>
-                            <td>
-                                <?= $v['jenis_kelamin'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_jenis_kelamin'] .')</span>' : '' ?>
-                            </td>
-                            <td>
-                                <?= $v['usia'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_usia'] .')</span>' : '' ?>
-                            </td>
+                            <td><?= $v['jenis_kelamin'] ?></td>
+                            <td><?= $v['usia'] ?></td>
                             <td><?= $v['tinggi_badan'] ?></td>
                             <td><?= $v['berat_badan'] ?></td>
-                            <td>
-                                <?= $v['indeks_massa_tubuh'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_indeks_massa_tubuh'] .')</span>' : '' ?>
-                            </td>
-                            <td>
-                                <?= $v['tekanan_darah'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_tekanan_darah'] .')</span>' : '' ?>
-                            </td>
+                            <td><?= $v['indeks_massa_tubuh'] ?></td>
+                            <td><?= $v['tekanan_darah'] ?></td>
                             <td><?= $v['denyut_jantung'] ?></td>
-                            <td>
-                                <?= $v['riwayat_merokok'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_riwayat_merokok'] .')</span>' : '' ?>
-                            </td>
+                            <td><?= $v['riwayat_merokok'] ?></td>
                             <td><?= $v['riwayat_alkohol'] ?></td>
-                            <td>
-                                <?= $v['riwayat_diabetes'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_riwayat_diabetes'] .')</span>' : '' ?>
-                            </td>
-                            <td>
-                                <?= $v['aktivitas_fisik'] ?>
-                                <?= $id_user_session == 1 ? '<span class="text-secondary">('. $v['skor_aktivitas_fisik'] .')</span>' : '' ?>
-                            </td>
+                            <td><?= $v['riwayat_diabetes'] ?></td>
+                            <td><?= $v['aktivitas_fisik'] ?></td>
                             <td>
                                 <a href="<?= $route.'/edit/'.model('M_Env')->encode($v['id']) ?>">
                                     <i class="fa-regular fa-pen-to-square fa-lg me-2"></i>
