@@ -76,11 +76,11 @@
                                     <i class="fa-regular fa-trash-can fa-lg text-danger"></i>
                                 </a>
                                 <!-- Modal -->
-                                <div class="modal fade" id="hapus_data<?= model('M_Env')->encode($v['id']) ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="hapus_data<?= model('M_Env')->encode($v['id']) ?>" tabindex="-1" aria-labelledby="hapusDataLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Hapus <?= str_replace('Data ','',$title) ?></h5>
+                                                <h1 class="modal-title fs-5" id="hapusDataLabel">Hapus <?= str_replace('Data ','',$title) ?></h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">

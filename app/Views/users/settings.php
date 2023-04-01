@@ -34,31 +34,13 @@
 </div>
 </section>
 
-<!-- Modal hapus foto profil -->
-<div class="modal fade" id="deleteImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Hapus foto profil?</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <form action="<?= base_url('profile/delete/image') ?>" method="post">
-                <?= csrf_field(); ?>
-                <button type="submit" class="btn btn-danger">Hapus</button>
-            </form>
-        </div>
-        </div>
-    </div>
-</div>
 
 <!-- Modal ubah password -->
-<div class="modal fade" id="ubah_password" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ubah_password" tabindex="-1" aria-labelledby="ubahPasswordLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
+                <h1 class="modal-title fs-5" id="ubahPasswordLabel">Ubah Password</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url().'/profile/update/password' ?>" method="post">
@@ -97,6 +79,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
 let eye_oldpass = document.getElementById('eye_oldpass');

@@ -197,11 +197,11 @@
 </section>
 
 <!-- Modal hapus foto profil -->
-<div class="modal fade" id="deleteImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteImage" tabindex="-1" aria-labelledby="deleteImageLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Hapus foto profil?</h5>
+            <h1 class="modal-title fs-5" id="deleteImageLabel">Hapus foto profil?</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-footer">
@@ -211,51 +211,6 @@
                 <button type="submit" class="btn btn-danger">Hapus</button>
             </form>
         </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal ubah password -->
-<div class="modal fade" id="ubah_password" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ubah Password</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="<?= base_url().'/profile/update/password' ?>" method="post">
-                <?= csrf_field(); ?>
-                <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="oldpass" class="form-label">Password Saat Ini</label>
-                            <div class="position-relative">
-                                <input onkeyup="changeOldPass()" type="password" class="form-control" name="oldpass" value="<?= old('oldpass') ?>" id="oldpass" placeholder="Password saat ini">
-                                <img src="<?= base_url('assets/img/show.png') ?>" class="position-absolute" id="eye_oldpass" style="width:20px;right:12px;top:8px;">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password Baru</label>
-                            <div class="mb-2 position-relative">
-                                <input onkeyup="changePassword()" type="password" class="form-control" name="password" value="<?= old('password') ?>" id="password" placeholder="Password baru">
-                                <div class="invalid-feedback">
-                                    <span id="msg_password"></span>
-                                </div>
-                                <img src="<?= base_url('assets/img/show.png') ?>" class="position-absolute" id="eye_password" style="width:20px;right:12px;top:8px;">
-                            </div>
-                            <div class="position-relative">
-                                <input onkeyup="changePassconf()" type="password" class="form-control" name="passconf" value="<?= old('passconf') ?>" id="passconf" placeholder="Confirm password">
-                                <div class="invalid-feedback">
-                                    <span id="msg_passconf"></span>
-                                </div>
-                                <img src="<?= base_url('assets/img/show.png') ?>" class="position-absolute" id="eye_passconf" style="width:20px;right:12px;top:8px;">
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary" id="simpan_password" disabled>Simpan</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>
