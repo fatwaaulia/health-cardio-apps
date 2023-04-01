@@ -83,6 +83,9 @@ $routes->group('my-diary', ['filter' => 'Pasien'], static function ($routes) {
     $routes->post('update/(:segment)', 'C_MyDiary::update/$1');
     $routes->post('delete/(:segment)', 'C_MyDiary::delete/$1');
 });
+$routes->group('tata-laksana', ['filter' => 'Pasien'], static function ($routes) {
+    $routes->get('/', 'C_MyDiary::tataLaksana');
+});
 
 /*
  * --------------------------------------------------------------------

@@ -15,7 +15,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 				<!-- Sidebar Menu -->
 				<?php
 				$sidebar = [
-					// SEMUA ROLE
+					// == SEMUA ROLE ==
 					[
 						'text'    => 'Dashboard',
 						'url'     => 'dashboard',
@@ -23,7 +23,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'dashboard',
 						'role'    => ['1','2','3'],
 					],
-					// SUPERADMIN
+					//  ==SUPERADMIN ==
 					[
 						'text'    => 'Kelola Pengguna',
 						'url'     => 'users',
@@ -42,9 +42,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'screening-pasien',
 						'role'    => ['1'],
 					],
-					// ADMIN
-					// == sidebar
-					// STARTED
+					// == PASIEN ==
 					[
 						'text'    => 'Pemeriksaan',
 						'role'    => ['3'],
@@ -70,7 +68,14 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'active'  => 'my-diary',
 						'role'    => ['3'],
 					],
-					// SEMUA ROLE
+					[
+						'text'    => 'Tata Laksana',
+						'url'     => 'tata-laksana',
+						'icon'    => 'fa-solid fa-timeline',
+						'active'  => 'tata-laksana',
+						'role'    => ['3'],
+					],
+					// == SEMUA ROLE ==
 					[
 						'text'    => 'Akun Saya',
 						'role'   => ['1','2','3'],

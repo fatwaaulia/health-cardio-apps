@@ -85,4 +85,16 @@ class C_MyDiary extends BaseController
                 })
             </script>");
     }
+
+    public function tataLaksana()
+    {
+        $data['title'] = ucwords(str_replace('-', ' ', service('uri')->getSegment(1)));
+        $data['data'] = $this->model->where('id_user',$this->user_session['id'])->orderBy('id','DESC')->first();
+        $data['name'] = $this->name;
+        $data['route'] = $this->route;
+
+        $data['content'] = view($this->name.'/tata_laksana',$data);
+        $data['sidebar'] = view('dashboard/sidebar',$data);
+        return view('dashboard/header',$data);
+    }
 }
