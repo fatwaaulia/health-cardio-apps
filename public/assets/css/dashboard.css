@@ -1,5 +1,5 @@
 h1,h2,h3,h4,h5,h6,label, th, td {
-    color: #000!important;
+    color: #202124!important;
 }
 body {
     background-color:#f5f7fb!important;
@@ -26,15 +26,15 @@ h6 {font-size: 1rem}
     font-size: 1rem;
 }
 .form-control, .form-select, .dropdown-item {
-    color: #000;
+    color: #202124;
     font-size: 1rem;
 }
 .form-control, .form-select, .dropdown-item:focus {
-    color: #000!important;
+    color: #202124!important;
 }
-.dropdown-item:active {
+.dropdown-item.active, .dropdown-item:active {
     color:white!important;
-    background-color: #3b7ddd!important;
+    background-color: #F8475E!important;
 }
 .modal-body table tr td {
     white-space: normal!important;
@@ -48,7 +48,7 @@ h6 {font-size: 1rem}
 }
 .sidebar-link,a.sidebar-link{
     background:#fff;
-    color:#000;
+    color:#202124;
 }
 .sidebar-link i,.sidebar-link svg,a.sidebar-link i,a.sidebar-link svg{
     color:#535353;
@@ -64,8 +64,8 @@ h6 {font-size: 1rem}
 .sidebar-item.active .sidebar-link:hover,
 .sidebar-item.active>.sidebar-link,
 .sidebar-item.active>.sidebar-link>i{
-    background-color: #3b7ddd;
-    border-left-color: #3b7ddd;
+    background-color: #F8475E;
+    border-left-color: #F8475E;
     color:#fff!important;
     border-radius: 0 50px 50px 0;
 }
@@ -82,21 +82,43 @@ h6 {font-size: 1rem}
 /* Akhir sidebar */
 
 /* Boostrap */
-.fs-1 {
-    font-size: calc(1.375rem + 1.5vw) !important;
+.fs-1 {font-size: calc(1.375rem + 1.5vw) !important;}
+.fs-2 {font-size: calc(1.325rem + 0.9vw) !important;}
+.fs-3 {font-size: calc(1.3rem + 0.6vw) !important;}
+.fs-4 {font-size: calc(1.275rem + 0.3vw) !important;}  
+.fs-5 {font-size: 1.25rem !important;}
+.fs-6 {font-size: 1rem !important;}
+
+/* Bootstrap coloring */
+.btn-primary {
+    background-color: #F8475E!important;
+    border-color: #F8475E!important;
 }
-.fs-2 {
-    font-size: calc(1.325rem + 0.9vw) !important;
+.btn-primary:hover {
+    background-color: #F8475E!important;
+    border-color: #F8475E!important;
 }
-.fs-3 {
-    font-size: calc(1.3rem + 0.6vw) !important;
+.btn-check:focus + .btn-primary, 
+.btn-primary:focus {
+    background-color: #F8475E!important;
+    border-color: #F8475E!important;
+    box-shadow: 0 0 0 .25rem #ffbec7!important;
 }
-.fs-4 {
-    font-size: calc(1.275rem + 0.3vw) !important;
-}  
-.fs-5 {
-    font-size: 1.25rem !important;
+.btn-check:active + .btn-primary:focus, 
+.btn-check:checked + .btn-primary:focus, 
+.btn-primary.active:focus, 
+.btn-primary:active:focus, 
+.show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .25rem #ffbec7!important;
 }
-.fs-6 {
-    font-size: 1rem !important;
+textarea:focus, input:focus,
+.form-select:active,.form-select:focus,
+.uneditable-input:focus {   
+  border-color: #F8475E!important;
+  box-shadow: 0 0 0 .25rem #ffbec7!important;
+}
+.dselect-wrapper .form-select.show {
+    border-color: #F8475E!important;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem #ffbec7!important;
 }

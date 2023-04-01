@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class M_Env extends Model
 {
     public function webName() {
-        return 'Web App';
+        return 'Health Cardio Apps';
     }
 
    public function encode($id = null)
