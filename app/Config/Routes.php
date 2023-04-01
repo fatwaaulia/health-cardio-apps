@@ -37,7 +37,7 @@ $routes->set404Override(
 // route since we don't have to scan directories.
 $routes->get('/', 'C_Auth::login');
 
-// AUTENTIKASI
+// == Autentikasi ==
 // Login
 $routes->get('login', 'C_Auth::login');
 $routes->post('login-process', 'C_Auth::loginProcess');
@@ -46,23 +46,18 @@ $routes->get('logout', 'C_Auth::logout');
 $routes->get('register', 'C_Auth::register');
 $routes->post('register-process', 'C_Auth::registerProcess');
 
-// IS LOGIN
+// == Is login ==
 $routes->get('dashboard', 'C_Dashboard::dashboard', ['filter' => 'Auth']);
-
-// PROFILE
 $routes->group('profile', ['filter' => 'Auth'], static function ($routes) {
-$routes->get('/', 'C_Users::profile');
-$routes->post('update', 'C_Users::updateProfile');
+    $routes->get('/', 'C_Users::profile');
+    $routes->post('update', 'C_Users::updateProfile');
 });
-
-// SETTING
 $routes->group('settings', ['filter' => 'Auth'], static function ($routes) {
-$routes->get('/', 'C_Users::settings');
-$routes->post('update/password', 'C_Users::updatePassword');
+    $routes->get('/', 'C_Users::settings');
+    $routes->post('update/password', 'C_Users::updatePassword');
 });
 
-// SUPERADMIN
-// Users
+// == Role - Superadmin ==
 $routes->group('users', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->get('/', 'C_Users::index');
     $routes->get('edit/(:segment)', 'C_Users::edit/$1');
@@ -70,7 +65,6 @@ $routes->group('users', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->post('delete/(:segment)', 'C_Users::delete/$1');
     $routes->post('delete-image/(:segment)', 'C_Users::deleteImg/$1');
 });
-// Screening Pasien
 $routes->group('screening-pasien', ['filter' => 'Superadmin'], static function ($routes) {
     $routes->get('/', 'C_MyDiary::myDiary');
     $routes->get('edit/(:segment)', 'C_MyDiary::edit/$1');
@@ -78,13 +72,11 @@ $routes->group('screening-pasien', ['filter' => 'Superadmin'], static function (
     $routes->post('delete/(:segment)', 'C_MyDiary::delete/$1');
 });
 
-// PASIEN
-// Screening
+// == Role - Pasien ==
 $routes->group('screening', ['filter' => 'Pasien'], static function ($routes) {
     $routes->get('/', 'C_Screening::screening');
     $routes->post('create', 'C_Screening::create');
 });
-// My Diary
 $routes->group('my-diary', ['filter' => 'Pasien'], static function ($routes) {
     $routes->get('/', 'C_MyDiary::myDiary');
     $routes->get('edit/(:segment)', 'C_MyDiary::edit/$1');
