@@ -54,6 +54,25 @@ class Pasien implements FilterInterface
                         timerProgressBar: true,
                         })
                     </script>");
+            } else {
+                if (!($user['usia'] 
+                    && $user['riwayat_diabetes'] 
+                    && $user['riwayat_alkohol'] 
+                    && $user['riwayat_merokok']
+                    )) {
+                    return redirect()->to(base_url() . '/profile')
+                    ->with('message',
+                        "<script>
+                            Swal.fire({
+                            position: 'top-end',
+                            icon: 'warning',
+                            title: 'Lengkapi personal information!',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            })
+                        </script>");
+                }
             }
         }
     
