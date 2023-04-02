@@ -24,10 +24,12 @@ h6 {font-size: 1rem}
 }
 .btn {
     font-size: 1rem;
+    border-radius: 8px;
 }
 .form-control, .form-select, .dropdown-item {
     color: #202124;
     font-size: 1rem;
+    border-radius: 8px;
 }
 .form-control, .form-select, .dropdown-item:focus {
     color: #202124!important;
