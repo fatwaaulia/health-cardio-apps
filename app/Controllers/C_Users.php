@@ -245,14 +245,13 @@ class C_Users extends BaseController
             </script>");
     }
 
-    // SETTINGS
     public function settings()
     {
         $id = $this->user_session['id'];
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Settings';
+        $data['title'] = 'Pengaturan';
 
         $data['content']   = view($this->name.'/settings',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
