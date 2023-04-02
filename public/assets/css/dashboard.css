@@ -24,12 +24,10 @@ h6 {font-size: 1rem}
 }
 .btn {
     font-size: 1rem;
-    border-radius: 8px;
 }
 .form-control, .form-select, .dropdown-item {
     color: #202124;
     font-size: 1rem;
-    border-radius: 8px;
 }
 .form-control, .form-select, .dropdown-item:focus {
     color: #202124!important;
@@ -37,6 +35,9 @@ h6 {font-size: 1rem}
 .dropdown-item.active, .dropdown-item:active {
     color:white!important;
     background-color: #F8475E!important;
+}
+.btn, .form-control, .form-select, .dropdown-item, .card {
+    border-radius: 8px;
 }
 .modal-body table tr td {
     white-space: normal!important;
