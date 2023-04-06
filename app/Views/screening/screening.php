@@ -92,7 +92,7 @@
                                 <!--  -->
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Analize</button>
+                        <button type="submit" class="btn btn-primary mt-3">Analisis</button>
                     </form>
                 </div>
             </div>

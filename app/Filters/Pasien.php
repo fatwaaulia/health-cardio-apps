@@ -55,18 +55,20 @@ class Pasien implements FilterInterface
                         })
                     </script>");
             } else {
-                if (!($user['usia'] 
-                    && $user['riwayat_diabetes'] 
-                    && $user['riwayat_alkohol'] 
-                    && $user['riwayat_merokok']
-                    )) {
+                $data_kosong = [
+                    $user['usia'],
+                    $user['riwayat_diabetes'],
+                    $user['riwayat_alkohol'],
+                    $user['riwayat_merokok']
+                ];
+                if (in_array('', $data_kosong)) {
                     return redirect()->to(base_url() . '/profile')
                     ->with('message',
                         "<script>
                             Swal.fire({
                             position: 'top-end',
                             icon: 'warning',
-                            title: 'Lengkapi personal information!',
+                            title: 'Lengkapi riwayat kesehatan!',
                             showConfirmButton: false,
                             timer: 3000,
                             timerProgressBar: true,

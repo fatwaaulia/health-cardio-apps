@@ -48,7 +48,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 						'role'    => ['3'],
 					],
 					[
-						'text'    => 'Personal Information',
+						'text'    => 'Riwayat Kesehatan',
 						'url'     => 'profile',
 						'icon'    => 'fa-solid fa-user',
 						'active'  => 'profile',
