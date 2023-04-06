@@ -16,7 +16,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <?php
-                                        $id_user_session = session()->get('user')['id_role'];
+                                        $id_role_user = session()->get('user')['id_role'];
                                         if ($data['risiko'] == 'Risiko rendah') {
                                             $color_risiko = 'text-success';
                                         } elseif ($data['risiko'] == 'Risiko sedang') {
@@ -29,7 +29,7 @@
                                             <a data-bs-toggle="modal" data-bs-target="#modalRisiko">
                                                 <?= $data['risiko'] ?>
                                                 <i class="fa-solid fa-circle-info"></i>
-                                                <?= $id_user_session == 1 ? '<span class="text-secondary">(total skor: '. $data['total_skor'] .')</span>' : '' ?>
+                                                <?= $id_role_user == 1 ? '<span class="text-secondary">(total skor: '. $data['total_skor'] .')</span>' : '' ?>
                                             </a>
                                         </div>
                                     </div>
@@ -46,15 +46,20 @@
                             <div class="col-lg-6">
                                 <hr>
                                 <div class="mb-3">
-                                    <label class="form-label">Jenis Kelamin</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_jenis_kelamin'] .')</span>' : '' ?>
+                                    <label class="form-label">Nama</label>
+                                    <?php $nama_pasien = model('M_Users')->where('id',$data['id_user'])->first()['nama'] ?>
+                                    <input type="text" class="form-control" value="<?= $nama_pasien ?>" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jenis Kelamin</label> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_jenis_kelamin'] .')</span>' : '' ?>
                                     <input type="text" class="form-control" value="<?= $data['jenis_kelamin'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Usia</label><span class="text-secondary"> (tahun)</span> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_usia'] .')</span>' : '' ?>
+                                    <label class="form-label">Usia</label><span class="text-secondary"> (tahun)</span> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_usia'] .')</span>' : '' ?>
                                     <input type="number" class="form-control" value="<?= $data['usia'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Riwayat Merokok</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_riwayat_merokok'] .')</span>' : '' ?>
+                                    <label class="form-label">Riwayat Merokok</label> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_riwayat_merokok'] .')</span>' : '' ?>
                                     <input type="text" class="form-control" value="<?= $data['riwayat_merokok'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
@@ -62,7 +67,7 @@
                                     <input type="text" class="form-control" value="<?= $data['riwayat_alkohol'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Riwayat Diabetes</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_riwayat_diabetes'] .')</span>' : '' ?>
+                                    <label class="form-label">Riwayat Diabetes</label> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_riwayat_diabetes'] .')</span>' : '' ?>
                                     <input type="text" class="form-control" value="<?= $data['riwayat_diabetes'] ?>" disabled>
                                 </div>
                             </div>
@@ -78,11 +83,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Hasil BMI :</label>
-                                    <span style="color:#000"><?= $data['indeks_massa_tubuh'] ?></span> <span class="text-secondary"> kg/m2</span> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_indeks_massa_tubuh'] .')</span>' : '' ?>
+                                    <span style="color:#000"><?= $data['indeks_massa_tubuh'] ?></span> <span class="text-secondary"> kg/m2</span> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_indeks_massa_tubuh'] .')</span>' : '' ?>
                                 </div>
                                 <hr>
                                 <div class="mb-3">
-                                    <label class="form-label">Tekanan Darah</label> <span class="text-secondary"> (mmHg)</span> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_tekanan_darah'] .')</span>' : '' ?>
+                                    <label class="form-label">Tekanan Darah</label> <span class="text-secondary"> (mmHg)</span> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_tekanan_darah'] .')</span>' : '' ?>
                                     <input type="text" class="form-control" value="<?= $data['tekanan_darah'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
@@ -90,7 +95,7 @@
                                     <input type="number" class="form-control" value="<?= $data['denyut_jantung'] ?>" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Aktivitas Fisik Mingguan</label> <?= $id_user_session == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_aktivitas_fisik'] .')</span>' : '' ?>
+                                    <label class="form-label">Aktivitas Fisik Mingguan</label> <?= $id_role_user == 1 ? '<span class="text-secondary float-end">(skor: '. $data['skor_aktivitas_fisik'] .')</span>' : '' ?>
                                     <a>
                                         <span data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-circle-info"></i></span>
                                     </a>
