@@ -55,6 +55,8 @@
                             </div>
                         </div>
                     </button>
+
+                    <?php if ($data['risiko'] != 'Risiko rendah') : ?>
                     <button class="btn btn-tata-laksana mt-3">
                         <div class="row">
                             <div class="col-3">
@@ -65,6 +67,9 @@
                             </div>
                         </div>
                     </button>
+                    <?php endif; ?>
+                    
+                    <?php if ($data['risiko'] == 'Risiko sedang') : ?>
                     <button class="btn btn-tata-laksana mt-3" onclick="getLocation('Puskesmas')">
                         <div class="row">
                             <div class="col-3">
@@ -75,6 +80,9 @@
                             </div>
                         </div>
                     </button>
+                    <?php endif; ?>
+
+                    <?php if ($data['risiko'] == 'Risiko tinggi') : ?>
                     <button class="btn btn-tata-laksana mt-3" onclick="getLocation('Rumah Sakit')">
                         <div class="row">
                             <div class="col-3">
@@ -95,6 +103,7 @@
                             </div>
                         </div>
                     </button>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="col-lg-8">
