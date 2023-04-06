@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </button>
-                    <button class="btn btn-tata-laksana mt-3">
+                    <button class="btn btn-tata-laksana mt-3" onclick="getLocation('Puskesmas')">
                         <div class="row">
                             <div class="col-3">
                                 <img src="<?= base_url('assets/img/sugar-blood-level.png') ?>" class="wh-50">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </button>
-                    <button class="btn btn-tata-laksana mt-3">
+                    <button class="btn btn-tata-laksana mt-3" onclick="getLocation('Rumah Sakit')">
                         <div class="row">
                             <div class="col-3">
                                 <img src="<?= base_url('assets/img/cardio-screening.png') ?>" class="wh-50">
@@ -107,11 +107,27 @@
 </section>
 
 <script>
-let details = document.getElementById('details');
+const details = document.getElementById('details');
 const edukasiPenyakit = () => {
     details.innerHTML = '<label class="fw-600 mb-2">Edukasi Penyakit</label><span>Edukasi penyakit kardiovaskular mencakup definisi, prevalensi, faktor risiko,tanda dan gejala, serta komplikasi penyakit.</span>';
 }
 const edukasiTataLaksana = () => {
     details.innerHTML = '<label class="fw-600 mb-2">Edukasi Tata Laksana</label><span>Sedangkan edukasi tata laksana penyakit kardiovaskular berupa edukasi modifikasi perilaku seperti manajemen diet, aktifitas fisik, pengurangan konsumsi alkohol, berhenti merokok, istirahat cukup, mengelola stres, dan melakukan monitoring kesehatan secara rutin.</span>';
+}
+const getLocation = (faskes) => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let searchFaskes = `https://www.google.co.id/maps/search/${faskes}/@${latitude},${longitude}`;
+            window.open(searchFaskes, '_blank');
+            details.innerHTML = `
+                <label class="fw-600 mb-2">${faskes} Terdekat</label>
+                <a href="${searchFaskes}" target="_blank">buka maps</a>
+                `;
+        });
+    } else { 
+        alert('Geolocation is not supported by this browser');
+    }
 }
 </script>
