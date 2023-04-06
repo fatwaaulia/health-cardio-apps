@@ -215,10 +215,11 @@
     </div>
 </div>
 
+<link rel="stylesheet" href="<?= base_url().'/assets/css/dselect.css' ?>">
 <script src="<?= base_url().'/assets/js/dselect.js' ?>"></script>    
 <script>
-dselect(document.querySelector('#jenis_kelamin'));
-dselect(document.querySelector('#riwayat_diabetes'));
-dselect(document.querySelector('#riwayat_alkohol'));
-dselect(document.querySelector('#riwayat_merokok'));
+    dselect(document.querySelector('#jenis_kelamin'));
+    dselect(document.querySelector('#riwayat_diabetes'));
+    dselect(document.querySelector('#riwayat_alkohol'));
+    dselect(document.querySelector('#riwayat_merokok'));
 </script>

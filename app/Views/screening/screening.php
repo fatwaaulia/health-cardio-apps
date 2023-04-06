@@ -119,9 +119,11 @@ let element_indeks_massa_tubuh = document.getElementById('element_indeks_massa_t
 });
 </script>
 
+<!-- Dselect -->
+<link rel="stylesheet" href="<?= base_url().'/assets/css/dselect.css' ?>">
 <script src="<?= base_url().'/assets/js/dselect.js' ?>"></script>
 <script>
-dselect(document.querySelector('#aktivitas_fisik'));
+    dselect(document.querySelector('#aktivitas_fisik'));
 </script>
 
 <!-- Modal -->

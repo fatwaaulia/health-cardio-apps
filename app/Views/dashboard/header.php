@@ -29,9 +29,6 @@
 
     <!-- SWEETALERT 2 -->
     <script src="<?=base_url().'/assets/js/sweetalert2.js' ?>"></script>
-
-    <!-- DSELECT -->
-    <link rel="stylesheet" href="<?= base_url().'/assets/css/dselect.css' ?>">
 </head>
 
 <body>
@@ -119,16 +116,6 @@
                 'colvis',
             ],
         });
-    });
-    </script>
-
-    <!-- DSELECT -->
-    <script src="<?= base_url().'/assets/js/dselect.js' ?>"></script>
-    <script>
-    dselect(document.querySelector('#select'));
-    dselect(document.querySelector('#select_multiple'));
-    dselect(document.querySelector('#select_search'), {
-        search: true,
     });
     </script>
 </body>
