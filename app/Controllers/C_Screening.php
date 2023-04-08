@@ -189,7 +189,7 @@ class C_Screening extends BaseController
                     Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Tambah data berhasil',
+                    title: 'Screening berhasil',
                     showConfirmButton: false,
                     timer: 3000,
                     timerProgressBar: true,
