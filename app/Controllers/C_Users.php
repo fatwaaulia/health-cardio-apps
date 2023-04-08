@@ -151,7 +151,7 @@ class C_Users extends BaseController
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Personal Information';
+        $data['title'] = 'Riwayat Kesehatan';
 
         $data['content']   = view($this->name.'/profile',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
