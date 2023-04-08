@@ -34,7 +34,7 @@ class C_MyDiary extends BaseController
         $data['data'] = $this->model->find($id);
         $data['name'] = $this->name;
         $data['route'] = $this->route;
-        $data['title'] = 'Edit ' . ucwords(str_replace('-', ' ', service('uri')->getSegment(1)));
+        $data['title'] = 'Detail ' . ucwords(str_replace('-', ' ', service('uri')->getSegment(1)));
         
         $data['content']   = view($this->name.'/edit',$data);
         $data['sidebar'] = view('dashboard/sidebar',$data);
