@@ -153,7 +153,7 @@ class C_Screening extends BaseController
                 $risiko = 'Risiko rendah';
             } elseif (in_array($total_skor, range(2, 4))) {
                 $risiko = 'Risiko sedang';
-            } elseif ($total_skor > 5) {
+            } elseif ($total_skor >= 5) {
                 $risiko = 'Risiko tinggi';
             }
 
@@ -183,7 +183,7 @@ class C_Screening extends BaseController
             
             // dd($field);
             $this->model->insert($field);
-            return redirect()->to($this->route)
+            return redirect()->to(base_url('tata-laksana'))
                 ->with('message',
                 "<script>
                     Swal.fire({
