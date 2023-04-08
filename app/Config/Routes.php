@@ -15,9 +15,12 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override(
-    function(){
+    function() {
         $data['title'] = '404';
         $data['content'] = view('errors/e404');
+        if (session()->isLogin) {
+            $data['sidebar'] = view('dashboard/sidebar',$data);
+        }
         return view('dashboard/header',$data);
     }
 );
