@@ -13,7 +13,9 @@
                         <tr>
                             <th>No.</th>
                             <th>Tanggal Pemeriksaan</th>
+                            <?php if (session()->get('user')['id_role'] == 1) : ?>
                             <th>Nama Pasien</th>
+                            <?php endif; ?>
                             <th>Risiko</th>
                             <th>Jenis Kelamin</th>
                             <th>Usia</th>
@@ -34,12 +36,14 @@
                         <tr>
                             <td><?= $key+1 ?></td>
                             <td><?= date('d M Y H:i:s', strtotime($v['created_at'])) ?></td>
+                            <?php if (session()->get('user')['id_role'] == 1) : ?>
                             <td>
                                 <?php
                                 $pasien = model('M_Users')->where('id', $v['id_user'])->first();
                                 echo $pasien['nama'];
                                 ?>
                             </td>
+                            <?php endif; ?>
                             <td>
                             <?php
                             $id_user_session = session()->get('user')['id_role'];
