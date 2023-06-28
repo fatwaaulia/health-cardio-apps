@@ -6,7 +6,7 @@
 				<div class="card-body">
 					<h4 class="mb-2 fw-600">Daftar</h4>
 					<p class="mb-4">Buat akun cepat dan mudah.</p>
-					<form class="mb-3" action="<?= base_url().'/register-process' ?>" method="POST">
+					<form class="mb-3" action="<?= base_url('register-process') ?>" method="POST">
 						<?= csrf_field(); ?>
 						<div class="mb-3">
 							<label for="nama" class="form-label">Nama Lengkap</label>
@@ -16,10 +16,10 @@
 							</div>
 						</div>
 						<div class="mb-3">
-						<label for="email" class="form-label">Email</label>
-							<input type="email" class="form-control <?= validation_show_error('email') ? "is-invalid" : '' ?>" id="email" name="email" value="<?= old('email') ?>" placeholder="name@gmail.com" autocomplete="off">
+						<label for="username" class="form-label">Username</label>
+							<input type="text" class="form-control <?= validation_show_error('username') ? "is-invalid" : '' ?>" id="username" name="username" value="<?= old('username') ?>" placeholder="username" autocomplete="off">
 							<div class="invalid-feedback">
-								<?= validation_show_error('email') ?>
+								<?= validation_show_error('username') ?>
 							</div>
 						</div>
 						<div class="mb-3">

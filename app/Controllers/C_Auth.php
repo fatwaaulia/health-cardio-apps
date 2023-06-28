@@ -24,15 +24,15 @@ class C_Auth extends BaseController
     public function loginProcess()
     {
         $rules = [
-            'email'     => 'required|valid_email',
+            'username'  => 'required|alpha_numeric|max_length[20]',
             'password'  => 'required',
         ];
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput();
         } else {
             $where = [
-                'email'         => $this->request->getVar('email', FILTER_SANITIZE_EMAIL),
-                'password'      => $this->model->password_hash($this->request->getVar('password')),
+                'username'  => $this->request->getVar('username', $this->filter),
+                'password'  => $this->model->password_hash($this->request->getVar('password')),
             ];
             
             $user = $this->model->where($where)->first();
@@ -51,7 +51,7 @@ class C_Auth extends BaseController
                         Swal.fire({
                         position: 'top-end',
                         icon: 'error',
-                        title: 'Email atau password salah!',
+                        title: 'Username atau password salah!',
                         showConfirmButton: false,
                         timer: 3000,
                         timerProgressBar: true,
@@ -76,24 +76,23 @@ class C_Auth extends BaseController
         return view('dashboard/header', $data);
     }
     public function registerProcess()
-    {   
+    {
         $rules = [
-            'nama'          => 'required',
-            'email'         => 'required|valid_email|is_unique[users.email]',
-            'password'      => 'required|min_length[8]',
-            'passconf'      => 'required|min_length[8]|matches[password]',
+            'nama'      => 'required',
+            'username'  => 'required|alpha_numeric|max_length[20]|is_unique[users.username]',
+            'password'  => 'required|min_length[8]',
+            'passconf'  => 'required|min_length[8]|matches[password]',
         ];
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput();
         }else {
             $field = [
-                'id_role'       => '3',
-                'nama'          => $this->request->getVar('nama', $this->filter),
-                'email'         => $this->request->getVar('email', FILTER_SANITIZE_EMAIL),
-                'password'      => $this->model->password_hash($this->request->getVar('password')),
+                'id_role'   => '3',
+                'nama'      => $this->request->getVar('nama', $this->filter),
+                'username'  => $this->request->getVar('username', $this->filter),
+                'password'  => $this->model->password_hash($this->request->getVar('password')),
             ];
-            
-            // dd($field);
+
             $this->model->insert($field);
             return redirect()->to(base_url() . '/login')
                 ->with('message',

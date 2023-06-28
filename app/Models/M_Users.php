@@ -7,17 +7,7 @@ use CodeIgniter\Model;
 class M_Users extends Model
 {
     protected $table         = 'users';
-    protected $allowedFields = [
-        'nama',
-        'email',
-        'password',
-        'img',
-        'jenis_kelamin',
-        'usia',
-        'riwayat_diabetes',
-        'riwayat_alkohol',
-        'riwayat_merokok',
-    ];
+    protected $protectFields = false;
     protected $useTimestamps = true;
 
     public function password_hash($password = null)

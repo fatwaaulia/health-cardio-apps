@@ -6,13 +6,13 @@
 				<div class="card-body">
 					<h4 class="mb-2 fw-600">Selamat datang👋</h4>
 					<p class="mb-4">Silakan masuk ke akun Anda.</p>
-					<form class="mb-3" action="<?= base_url().'/login-process' ?>" method="POST">
+					<form class="mb-3" action="<?= base_url('login-process') ?>" method="POST">
 						<?= csrf_field(); ?>
 						<div class="mb-3">
-							<label for="email" class="form-label">Email</label>
-							<input type="email" class="form-control <?= validation_show_error('email') ? "is-invalid" : '' ?>" id="email" name="email" value="<?= old('email') ?>" placeholder="name@gmail.com" autofocus autocomplete="off">
+							<label for="username" class="form-label">Username</label>
+							<input type="text" class="form-control <?= validation_show_error('username') ? "is-invalid" : '' ?>" id="username" name="username" value="<?= old('username') ?>" placeholder="username" autofocus autocomplete="off">
 							<div class="invalid-feedback">
-								<?= validation_show_error('email') ?>
+								<?= validation_show_error('username') ?>
 							</div>
 						</div>
 						<div class="mb-3">
