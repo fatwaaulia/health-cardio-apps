@@ -12,8 +12,8 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" value="<?= $data['email'] ?>" id="email" disabled>
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" value="<?= $data['username'] ?>" id="username" disabled>
                             </div>
                             <hr>
                             <div class="mb-3">
