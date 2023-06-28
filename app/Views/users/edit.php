@@ -96,8 +96,8 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" value="<?= $data['email'] ?>" placeholder="name@gmail.com" disabled>
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" value="<?= $data['username'] ?>" placeholder="username" disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Ubah Password</label><span class="text-secondary"> (opsional)</span>

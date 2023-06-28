@@ -16,7 +16,7 @@
                             <th>Foto</th>
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
-                            <th>Email</th>
+                            <th>Username</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -42,7 +42,7 @@
                             </td>
                             <td><?= $v['nama'] ?></td>
                             <td><?= $v['jenis_kelamin'] ?></td>
-                            <td><?= $v['email'] ?></td>
+                            <td><?= $v['username'] ?></td>
                             <td>
                                 <?php if ($v['id_role'] != 1) : ?>
                                 <a href="<?= $route.'/edit/'.model('M_Env')->encode($v['id']) ?>">
@@ -67,9 +67,9 @@
                                                         <td> <?= $v['nama'] ?> </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Email</td>
+                                                        <td>Username</td>
                                                         <td> : &nbsp;</td>
-                                                        <td> <?= $v['email'] ?> </td>
+                                                        <td> <?= $v['username'] ?> </td>
                                                     </tr>
                                                 </table>
                                             </div>
