@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 27, 2023 at 12:38 PM
--- Server version: 8.0.30
--- PHP Version: 8.2.3
+-- Waktu pembuatan: 28 Jun 2023 pada 07.45
+-- Versi server: 8.0.30
+-- Versi PHP: 8.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `form_input`
+-- Struktur dari tabel `form_input`
 --
 
 CREATE TABLE `form_input` (
@@ -43,7 +43,7 @@ CREATE TABLE `form_input` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `form_input`
+-- Dumping data untuk tabel `form_input`
 --
 
 INSERT INTO `form_input` (`id`, `nama`, `deskripsi`, `konten`, `img`, `select`, `select_search`, `select_multiple`, `checkbox`, `radio`, `created_at`, `updated_at`) VALUES
@@ -53,7 +53,7 @@ INSERT INTO `form_input` (`id`, `nama`, `deskripsi`, `konten`, `img`, `select`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Struktur dari tabel `role`
 --
 
 CREATE TABLE `role` (
@@ -62,18 +62,17 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `role`
+-- Dumping data untuk tabel `role`
 --
 
 INSERT INTO `role` (`id`, `nama`) VALUES
 (1, 'Superadmin'),
-(2, 'Admin'),
 (3, 'Pasien');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `screening`
+-- Struktur dari tabel `screening`
 --
 
 CREATE TABLE `screening` (
@@ -104,26 +103,17 @@ CREATE TABLE `screening` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `screening`
---
-
-INSERT INTO `screening` (`id`, `id_user`, `jenis_kelamin`, `skor_jenis_kelamin`, `usia`, `skor_usia`, `tinggi_badan`, `berat_badan`, `indeks_massa_tubuh`, `skor_indeks_massa_tubuh`, `tekanan_darah`, `skor_tekanan_darah`, `denyut_jantung`, `riwayat_merokok`, `skor_riwayat_merokok`, `riwayat_alkohol`, `riwayat_diabetes`, `skor_riwayat_diabetes`, `aktivitas_fisik`, `skor_aktivitas_fisik`, `total_skor`, `risiko`, `deskripsi`, `created_at`, `updated_at`) VALUES
-(6, 7, 'Laki-laki', 1, 25, 4, 171, 59, 20.21, 0, '115/84', NULL, 78, 'Tidak pernah', 0, 'Tidak', 'Tidak', 0, 'Ringan', 1, 6, 'Risiko tinggi', '', '2023-04-06 08:41:59', '2023-04-08 08:41:59'),
-(7, 7, 'Laki-laki', 1, 25, 4, 171, 60, 20.55, 0, '110/82', 0, 77, 'Tidak pernah', 0, 'Tidak', 'Tidak', 0, 'Berat', -3, 2, 'Risiko sedang', '', '2023-04-07 09:13:13', '2023-04-09 03:13:13'),
-(9, 7, 'Laki-laki', 1, 25, 4, 171, 62, 21.23, 0, '115/83', 0, 70, 'Tidak pernah', 0, 'Tidak', 'Tidak', 0, 'Berat', -3, 2, 'Risiko sedang', '', '2023-04-08 11:09:06', '2023-04-09 11:09:06');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
   `id_role` int NOT NULL,
   `nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `jenis_kelamin` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -136,70 +126,68 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `id_role`, `nama`, `email`, `password`, `img`, `jenis_kelamin`, `usia`, `riwayat_diabetes`, `riwayat_alkohol`, `riwayat_merokok`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Superadmin', 'superadmin@gmail.com', '6c6bbee91bae132c37f1fd88be269a80e8b7ca09436ae3f7d342d6599413b5760b26da25277ae56bbe027a35f1838c8dc4be34d0243e75da17090b27588e31a0', '1678345377_a947ce34bc1335dbaeec.jpg', 'Laki-laki', '22', '', '', '', '2022-10-21 14:14:28', '2023-04-01 20:31:21'),
-(2, 2, 'Admin', 'admin@gmail.com', '6c6bbee91bae132c37f1fd88be269a80e8b7ca09436ae3f7d342d6599413b5760b26da25277ae56bbe027a35f1838c8dc4be34d0243e75da17090b27588e31a0', '', 'Laki-laki', '', '', '', '', '2023-01-06 13:41:51', '2023-03-31 08:11:55'),
-(7, 3, 'Fatwa Aulia', 'fatwaaulia.fy@gmail.com', '6c6bbee91bae132c37f1fd88be269a80e8b7ca09436ae3f7d342d6599413b5760b26da25277ae56bbe027a35f1838c8dc4be34d0243e75da17090b27588e31a0', '1678344611_24fbd0c5fe6c0ac00418.jpg', 'Laki-laki', '25', 'Tidak', 'Tidak', 'Tidak pernah', '2023-01-13 16:13:31', '2023-04-06 14:21:58'),
-(8, 3, 'Senyum', 'senyum@gmail.com', '6c6bbee91bae132c37f1fd88be269a80e8b7ca09436ae3f7d342d6599413b5760b26da25277ae56bbe027a35f1838c8dc4be34d0243e75da17090b27588e31a0', '', 'Laki-laki', '25', '', '', '', '2023-03-28 05:15:01', '2023-03-28 07:24:28');
+INSERT INTO `users` (`id`, `id_role`, `nama`, `username`, `password`, `img`, `jenis_kelamin`, `usia`, `riwayat_diabetes`, `riwayat_alkohol`, `riwayat_merokok`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Superadmin', 'superadmin', '6c6bbee91bae132c37f1fd88be269a80e8b7ca09436ae3f7d342d6599413b5760b26da25277ae56bbe027a35f1838c8dc4be34d0243e75da17090b27588e31a0', '1687935765_f8a5226117685ce7b22c.png', 'Laki-laki', '22', '', '', '', '2022-10-21 14:14:28', '2023-06-28 14:02:45'),
+(13, 3, 'pasien', 'pasien', '6c6bbee91bae132c37f1fd88be269a80e8b7ca09436ae3f7d342d6599413b5760b26da25277ae56bbe027a35f1838c8dc4be34d0243e75da17090b27588e31a0', '', '', '', '', '', '', '2023-06-28 14:39:31', '2023-06-28 14:39:31');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `form_input`
+-- Indeks untuk tabel `form_input`
 --
 ALTER TABLE `form_input`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `role`
+-- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `screening`
+-- Indeks untuk tabel `screening`
 --
 ALTER TABLE `screening`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `form_input`
+-- AUTO_INCREMENT untuk tabel `form_input`
 --
 ALTER TABLE `form_input`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT untuk tabel `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `screening`
+-- AUTO_INCREMENT untuk tabel `screening`
 --
 ALTER TABLE `screening`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
