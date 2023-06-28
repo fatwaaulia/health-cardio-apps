@@ -6,16 +6,17 @@
     </div>
     <?php
     $screening = model('M_Screening')->where('id_user', session()->get('user')['id'])->orderBy('id','DESC')->first();
-    if ($screening['risiko'] == 'Risiko rendah') {
-    $backcolor_risiko = '#d4edda';
-    $color_risiko = 'text-success';
-    } elseif ($screening['risiko'] == 'Risiko sedang') {
-    $color_risiko = 'text-warning';
-    $backcolor_risiko = '#fef0db';
-    } elseif ($screening['risiko'] == 'Risiko tinggi') {
-    $color_risiko = 'text-danger';
-    $backcolor_risiko = '#ffb2b2';
-    }
+    if ($screening) :
+        if ($screening['risiko'] == 'Risiko rendah') {
+        $backcolor_risiko = '#d4edda';
+        $color_risiko = 'text-success';
+        } elseif ($screening['risiko'] == 'Risiko sedang') {
+        $color_risiko = 'text-warning';
+        $backcolor_risiko = '#fef0db';
+        } elseif ($screening['risiko'] == 'Risiko tinggi') {
+        $color_risiko = 'text-danger';
+        $backcolor_risiko = '#ffb2b2';
+        }
     ?>
     <div class="row">
         <div class="col-xxl-3 col-lg-4 col-md-6">
@@ -36,4 +37,5 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
