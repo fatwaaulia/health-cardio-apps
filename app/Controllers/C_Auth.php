@@ -13,7 +13,7 @@ class C_Auth extends BaseController
 
     public function login()
     {
-        if (session()->isLogin) return redirect()->to(base_url() . '/dashboard');
+        if (session()->isLogin) return redirect()->to(base_url('dashboard'));
         $data['title'] = 'Login';
 
         $data['content'] = view('auth/login', $data);
@@ -43,9 +43,9 @@ class C_Auth extends BaseController
                     'user'    => $user,
                 ];
                 session()->set($session);
-                return redirect()->to(base_url() . '/dashboard');
+                return redirect()->to(base_url('dashboard'));
             } else {
-                return redirect()->to(base_url() . '/login')
+                return redirect()->to(base_url('login'))
                     ->with('message',
                     "<script>
                         Swal.fire({
@@ -64,12 +64,12 @@ class C_Auth extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to(base_url() . '/login');
+        return redirect()->to(base_url('login'));
     }
 
     public function register()
     {
-        if (session()->isLogin) return redirect()->to(base_url() . '/dashboard');
+        if (session()->isLogin) return redirect()->to(base_url('dashboard'));
         $data['title'] = 'Register';
 
         $data['content'] = view('auth/register', $data);
@@ -94,7 +94,7 @@ class C_Auth extends BaseController
             ];
 
             $this->model->insert($field);
-            return redirect()->to(base_url() . '/login')
+            return redirect()->to(base_url('login'))
                 ->with('message',
                 "<script>
                     Swal.fire({

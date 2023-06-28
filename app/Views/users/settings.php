@@ -43,7 +43,7 @@
                 <h1 class="modal-title fs-5" id="ubahPasswordLabel">Ubah Password</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url().'/settings/update/password' ?>" method="post">
+            <form action="<?= base_url('settings/update/password') ?>" method="post">
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                         <div class="mb-3">

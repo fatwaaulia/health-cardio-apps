@@ -26,7 +26,7 @@ class Pasien implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->isLogin) { // Belum login
-            return redirect()->to(base_url() . '/login')
+            return redirect()->to(base_url('login'))
             ->with('message',
                 "<script>
                     Swal.fire({
@@ -42,7 +42,7 @@ class Pasien implements FilterInterface
             $user_session = session()->get('user');
             $user = model('M_Users')->where('id', $user_session['id'])->first();
             if ($user['id_role'] != '3') { // Tidak sesuai role yang diizinkan
-                return redirect()->to(base_url() . '/dashboard')
+                return redirect()->to(base_url('dashboard'))
                 ->with('message',
                     "<script>
                         Swal.fire({
@@ -62,7 +62,7 @@ class Pasien implements FilterInterface
                     $user['riwayat_merokok']
                 ];
                 if (in_array('', $data_kosong)) {
-                    return redirect()->to(base_url() . '/profile')
+                    return redirect()->to(base_url('profile'))
                     ->with('message',
                         "<script>
                             Swal.fire({

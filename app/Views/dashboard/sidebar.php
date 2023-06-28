@@ -7,7 +7,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 	<nav id="sidebar" class="sidebar js-sidebar">
 		<div class="sidebar-content js-simplebar">
 			<a class="sidebar-brand" href="<?= base_url('dashboard') ?>">
-				<img src="<?= base_url().'/assets/img/logo.png' ?>" class="w-100" alt="<?= getenv('app.name') ?>">
+				<img src="<?= base_url('assets/img/logo.png') ?>" class="w-100" alt="<?= getenv('app.name') ?>">
 			</a>
 
 			<ul class="sidebar-nav">
@@ -119,7 +119,7 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 							}
 							?>
 							<li class="sidebar-item <?= $active ?>">
-								<a class="sidebar-link" href="<?= base_url().'/'.$v['url'] ?>">
+								<a class="sidebar-link" href="<?= base_url($v['url']) ?>">
 									<i class="align-middle <?= $v['icon'] ?>"></i> 
 									<span class="align-middle"><?= $v['text'] ?></span>
 								</a>
@@ -158,12 +158,12 @@ $user = model('M_Users')->where('id', $user_session['id'])->first();
 							</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end">
-							<a class="dropdown-item" href="<?= base_url().'/profile' ?>">
+							<a class="dropdown-item" href="<?= base_url('profile') ?>">
 								<i class="fa-solid fa-user me-1"></i>
 								Profil
 							</a>
 								<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="<?= base_url().'/logout' ?>">
+							<a class="dropdown-item" href="<?= base_url('logout') ?>">
 								<i class="fa-solid fa-arrow-right-from-bracket me-1"></i>
 								Keluar
 							</a>
